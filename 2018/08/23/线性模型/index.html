@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="一. 基本形式由$d$个属性描述的实例$x=(x_1; x_2; …; x_d)$，线性回归试图学得一个通过属性的线性组合来预测的函数：  f(x)=w_1 x_1 + w_2 x_2 + ... + w_d x_d + b向量形式写成： $ f(x)=w^T x+b$ ，其中 $w = (w_1; w_2; …; w_d)$ 二. 线性回归设样本集的数目为$m$，$x$代表输入变量（特征），$y">
+<meta name="description" content="一. 基本形式由$d$个属性描述的实例$x=(x_1; x_2; …; x_d)$，线性回归试图学得一个通过属性的线性组合来预测的函数：  f(x)=w_1 x_1 + w_2 x_2 + ... + w_d x_d + b">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线性模型">
 <meta property="og:url" content="http://yoursite.com/2018/08/23/线性模型/index.html">
 <meta property="og:site_name" content="Hompage of Ran Zhao">
-<meta property="og:description" content="一. 基本形式由$d$个属性描述的实例$x=(x_1; x_2; …; x_d)$，线性回归试图学得一个通过属性的线性组合来预测的函数：  f(x)=w_1 x_1 + w_2 x_2 + ... + w_d x_d + b向量形式写成： $ f(x)=w^T x+b$ ，其中 $w = (w_1; w_2; …; w_d)$ 二. 线性回归设样本集的数目为$m$，$x$代表输入变量（特征），$y">
+<meta property="og:description" content="一. 基本形式由$d$个属性描述的实例$x=(x_1; x_2; …; x_d)$，线性回归试图学得一个通过属性的线性组合来预测的函数：  f(x)=w_1 x_1 + w_2 x_2 + ... + w_d x_d + b">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-08-26T09:26:30.580Z">
+<meta property="og:updated_time" content="2018-09-27T15:29:29.627Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线性模型">
-<meta name="twitter:description" content="一. 基本形式由$d$个属性描述的实例$x=(x_1; x_2; …; x_d)$，线性回归试图学得一个通过属性的线性组合来预测的函数：  f(x)=w_1 x_1 + w_2 x_2 + ... + w_d x_d + b向量形式写成： $ f(x)=w^T x+b$ ，其中 $w = (w_1; w_2; …; w_d)$ 二. 线性回归设样本集的数目为$m$，$x$代表输入变量（特征），$y">
+<meta name="twitter:description" content="一. 基本形式由$d$个属性描述的实例$x=(x_1; x_2; …; x_d)$，线性回归试图学得一个通过属性的线性组合来预测的函数：  f(x)=w_1 x_1 + w_2 x_2 + ... + w_d x_d + b">
 
 
 
@@ -321,7 +321,8 @@
 
       
         <h3 id="一-基本形式"><a href="#一-基本形式" class="headerlink" title="一. 基本形式"></a>一. 基本形式</h3><p>由$d$个属性描述的实例$x=(x_1; x_2; …; x_d)$，线性回归试图学得一个通过属性的线性组合来预测的函数： </p>
-<script type="math/tex; mode=display">f(x)=w_1 x_1 + w_2 x_2 + ... + w_d x_d + b</script><p>向量形式写成：</p>
+<script type="math/tex; mode=display">f(x)=w_1 x_1 + w_2 x_2 + ... + w_d x_d + b</script><a id="more"></a>
+<p>向量形式写成：</p>
 <p>$ f(x)=w^T x+b$ ，其中 $w = (w_1; w_2; …; w_d)$</p>
 <h3 id="二-线性回归"><a href="#二-线性回归" class="headerlink" title="二. 线性回归"></a>二. 线性回归</h3><p>设样本集的数目为$m$，$x$代表输入变量（特征），$y$代表输出变量（目标），$(x,y)$代表样本集中的实例，$(x^i,y^i)$代表样本集中第$i$个实例，函数$f(x)$是模型的假设。</p>
 <h4 id="1-损失函数"><a href="#1-损失函数" class="headerlink" title="1. 损失函数"></a>1. 损失函数</h4><p>模型的参数$w, b$决定模型预测能力的好坏，模型在训练集中的预测值与实际值的差距是我们的建模误差，代价函数即定义为建模误差的平方和：</p>
