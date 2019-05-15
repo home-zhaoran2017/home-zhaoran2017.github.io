@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="Ran Zhao">
 <meta property="og:description" content="一. 基本形式由$d$个属性描述的实例$x=(x_1; x_2; …; x_d)$，线性回归试图学得一个通过属性的线性组合来预测的函数：  f(x)=w_1 x_1 + w_2 x_2 + ... + w_d x_d + b">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-27T15:29:29.627Z">
+<meta property="og:updated_time" content="2019-05-15T06:37:33.018Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线性模型">
 <meta name="twitter:description" content="一. 基本形式由$d$个属性描述的实例$x=(x_1; x_2; …; x_d)$，线性回归试图学得一个通过属性的线性组合来预测的函数：  f(x)=w_1 x_1 + w_2 x_2 + ... + w_d x_d + b">
@@ -430,7 +430,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2018-09-27 23:29:29" itemprop="dateModified" datetime="2018-09-27T23:29:29+08:00">2018-09-27</time>
+                <time title="Modified: 2019-05-15 14:37:33" itemprop="dateModified" datetime="2019-05-15T14:37:33+08:00">2019-05-15</time>
               
             
           </span>
@@ -518,6 +518,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/05/15/Python读取导出json格式数据文件/" rel="prev" title="Python读取导出json格式数据文件">
+                Python读取导出json格式数据文件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -585,7 +589,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1115,6 +1119,53 @@
   
 
   
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
 
   
 
