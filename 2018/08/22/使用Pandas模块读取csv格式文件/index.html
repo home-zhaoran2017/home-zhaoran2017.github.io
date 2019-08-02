@@ -94,18 +94,18 @@
   };
 </script>
 
-  <meta name="description" content="在数据处理中，常遇到csv格式的文件，下面简要介绍如何使用Python中的Pandas模块来读取csv文件中的数据。">
+  <meta name="description" content="在数据处理中，常遇到csv格式的文件，下面简要介绍如何使用Python中的Pandas模块来 读取csv文件中的数据。">
 <meta name="keywords" content="Python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用Pandas模块读取csv格式文件">
 <meta property="og:url" content="http://yoursite.com/2018/08/22/使用Pandas模块读取csv格式文件/index.html">
 <meta property="og:site_name" content="Ran&#39;s Homepage">
-<meta property="og:description" content="在数据处理中，常遇到csv格式的文件，下面简要介绍如何使用Python中的Pandas模块来读取csv文件中的数据。">
+<meta property="og:description" content="在数据处理中，常遇到csv格式的文件，下面简要介绍如何使用Python中的Pandas模块来 读取csv文件中的数据。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2019-07-25T09:13:03.195Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用Pandas模块读取csv格式文件">
-<meta name="twitter:description" content="在数据处理中，常遇到csv格式的文件，下面简要介绍如何使用Python中的Pandas模块来读取csv文件中的数据。">
+<meta name="twitter:description" content="在数据处理中，常遇到csv格式的文件，下面简要介绍如何使用Python中的Pandas模块来 读取csv文件中的数据。">
 
 
 
@@ -412,37 +412,51 @@
       
 
       
-        <p>在数据处理中，常遇到csv格式的文件，下面简要介绍如何使用Python中的Pandas模块来<br>读取csv文件中的数据。</p>
+        <p>在数据处理中，常遇到csv格式的文件，下面简要介绍如何使用Python中的Pandas模块来
+读取csv文件中的数据。</p>
 <a id="more"></a>
-<h2 id="一-CSV文件"><a href="#一-CSV文件" class="headerlink" title="一. CSV文件"></a>一. CSV文件</h2><p>CSV(Comma-Separated Values)文件以纯文本形式存储表格数据，文件由任意数目的记录<br>组成，记录间以换行符分隔，每条记录由字段组成，字段间的分隔符可自定义，通常是<br>逗号。下面的数据取自Kaggle中Titanic的乘客信息数据。</p>
+<h2>一. CSV文件</h2>
+<p>CSV(Comma-Separated Values)文件以纯文本形式存储表格数据，文件由任意数目的记录
+组成，记录间以换行符分隔，每条记录由字段组成，字段间的分隔符可自定义，通常是
+逗号。下面的数据取自Kaggle中Titanic的乘客信息数据。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">PassengerId,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked</span><br><span class="line">892,3,&quot;Kelly, Mr. James&quot;,male,34.5,0,0,330911,7.8292,,Q</span><br><span class="line">893,3,&quot;Wilkes, Mrs. James (Ellen Needs)&quot;,female,47,1,0,363272,7,,S</span><br><span class="line">894,2,&quot;Myles, Mr. Thomas Francis&quot;,male,62,0,0,240276,9.6875,,Q</span><br><span class="line">895,3,&quot;Wirz, Mr. Albert&quot;,male,27,0,0,315154,8.6625,,S</span><br><span class="line">896,3,&quot;Hirvonen, Mrs. Alexander (Helga E Lindqvist)&quot;,female,22,1,1,3101298,12.2875,,S</span><br><span class="line">897,3,&quot;Svensson, Mr. Johan Cervin&quot;,male,14,0,0,7538,9.225,,S</span><br><span class="line">898,3,&quot;Connolly, Miss. Kate&quot;,female,30,0,0,330972,7.6292,,Q</span><br><span class="line">899,2,&quot;Caldwell, Mr. Albert Francis&quot;,male,26,1,1,248738,29,,S</span><br><span class="line">900,3,&quot;Abrahim, Mrs. Joseph (Sophie Halaut Easu)&quot;,female,18,0,0,2657,7.2292,,C</span><br><span class="line">901,3,&quot;Davies, Mr. John Samuel&quot;,male,21,2,0,A/4 48871,24.15,,S</span><br></pre></td></tr></table></figure>
-<h2 id="二-Pandas模块"><a href="#二-Pandas模块" class="headerlink" title="二. Pandas模块"></a>二. Pandas模块</h2><ol>
-<li><p>导入pandas模块</p>
+<h2>二. Pandas模块</h2>
+<ol>
+<li>
+<p>导入pandas模块</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>读取csv文件中的数据</p>
+<li>
+<p>读取csv文件中的数据</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = pd.read_csv(<span class="string">"train.csv"</span>,sep=<span class="string">','</span>)</span><br></pre></td></tr></table></figure>
 <p>参数<code>sep</code>设定csv文件中分隔符，默认为<code>,</code>。</p>
 </li>
-<li><p>数据集对应的参数名</p>
+<li>
+<p>数据集对应的参数名</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.columns</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>第 $i$ 条记录</p>
+<li>
+<p>第 $i$ 条记录</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.iloc[i-1]</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>数据集的大小</p>
+<li>
+<p>数据集的大小</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.shape</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>数据集的描述</p>
+<li>
+<p>数据集的描述</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.describe</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>数据集参数数组里的不同值</p>
+<li>
+<p>数据集参数数组里的不同值</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">titanic[<span class="string">'Sex'</span>].unique()</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>数据集字符串到数字的映射</p>
+<li>
+<p>数据集字符串到数字的映射</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">titanic.loc[titanic[<span class="string">'Sex'</span>]==<span class="string">'male'</span>,<span class="string">'Sex'</span>]=<span class="number">0</span></span><br><span class="line">titanic.loc[titanic[<span class="string">'Sex'</span>]==<span class="string">'female'</span>,<span class="string">'Sex'</span>]=<span class="number">1</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>数据集中缺失数据的补填</p>
+<li>
+<p>数据集中缺失数据的补填</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">titanic[<span class="string">'Age'</span>]=titanic[<span class="string">'Age'</span>].fillna(titanic[<span class="string">'Age'</span>].median())</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -571,7 +585,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -659,7 +673,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-CSV文件"><span class="nav-number">1.</span> <span class="nav-text">一. CSV文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-Pandas模块"><span class="nav-number">2.</span> <span class="nav-text">二. Pandas模块</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">一. CSV文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">二. Pandas模块</span></a></li></ol></div>
             
 
           </div>
@@ -676,7 +690,7 @@
         <h3 class="widget-title">Tag Cloud</h3>
         <div id="myCanvasContainer" class="widget tagcloud">
           <canvas width="250" height="250" id="resCanvas" style="width=100%">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据集/">数据集</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习/">机器学习</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据集/">数据集</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习/">机器学习</a><span class="tag-list-count">3</span></li></ul>
           </canvas>
         </div>
       </div>

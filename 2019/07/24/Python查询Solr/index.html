@@ -415,13 +415,15 @@
         <p>Pysolr是基于Python的Apache Solr轻量级封装。它提供了服务器查询并返回基于查询的结果接口,提供了基本的查询，删除，更新功能。</p>
 <a id="more"></a>
 <ol>
-<li><p><strong>solr请求中返回特定的字段类容</strong></p>
+<li>
+<p><strong>solr请求中返回特定的字段类容</strong></p>
 <p>在web请求报文中按如下方式</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/?q=query&amp;fl=field1,field2,field3</span><br></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Python面向对象机制</strong></p>
-<p>“单下划线” 开始的成员变量叫做保护变量，意思是只有类对象和子类对象自己能访问到这些变量</p>
-<p>“双下划线” 开始的是私有成员，意思是只有类对象自己能访问，连子类对象也不能访问到这个数据</p>
+<li>
+<p><strong>Python面向对象机制</strong></p>
+<p>&quot;单下划线&quot; 开始的成员变量叫做保护变量，意思是只有类对象和子类对象自己能访问到这些变量</p>
+<p>&quot;双下划线&quot; 开始的是私有成员，意思是只有类对象自己能访问，连子类对象也不能访问到这个数据</p>
 <p>以双下划线开头和结尾的代表python里特殊方法专用的标识</p>
 <p>_xxx 不能用 <code>from moduleimport *</code> 导入</p>
 <p>__xxx 类中的私有变量名</p>
@@ -433,7 +435,8 @@
 <li>双划线__开头的函数会导致访问名称变成其他形式，主要目的是为了将某个属性在子类中隐藏起来</li>
 </ul>
 </li>
-<li><p>Pysolr的基本机制</p>
+<li>
+<p>Pysolr的基本机制</p>
 <p>pysolr对web请求进一步封装，封装了对solr索引库的增删改查操作。这里，我们的主要需求是对solr索引库的查找操作，仅涉及到pysolr的查询命令，因此对pysolr的查询进一步封装，使得查询操作尽可能简单。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pysolr</span><br><span class="line">solr = pysolr.Solr(url)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询操作</span></span><br><span class="line">res = solr.search(params)</span><br></pre></td></tr></table></figure>
 </li>
@@ -490,6 +493,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/25/Hexo博客搭建教程/" rel="prev" title="Hexo博客搭建教程">
+                Hexo博客搭建教程 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -554,7 +561,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -642,7 +649,7 @@
         <h3 class="widget-title">Tag Cloud</h3>
         <div id="myCanvasContainer" class="widget tagcloud">
           <canvas width="250" height="250" id="resCanvas" style="width=100%">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据集/">数据集</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习/">机器学习</a><span class="tag-list-count">1</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据集/">数据集</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/机器学习/">机器学习</a><span class="tag-list-count">3</span></li></ul>
           </canvas>
         </div>
       </div>
