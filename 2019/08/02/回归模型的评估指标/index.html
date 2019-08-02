@@ -94,18 +94,18 @@
   };
 </script>
 
-  <meta name="description" content="1. 解释方差（Explained Variance） $$ EV = 1 - \frac{Var{y-\hat y}}{Var{y}} $$ 2. 均方误差（MSE） $$ MSE(y, \hat y) = \frac{1}{n} \sum_{i=1}^N (\hat y_i - y_i)^2  $$ 3. 均方根误差（RMSE） $$ RMSE(y, \hat y) = \sqrt{\frac">
+  <meta name="description" content="机器学习中回归模型的一些评估指标。">
 <meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="回归模型的评估指标">
 <meta property="og:url" content="http://yoursite.com/2019/08/02/回归模型的评估指标/index.html">
 <meta property="og:site_name" content="Ran&#39;s Homepage">
-<meta property="og:description" content="1. 解释方差（Explained Variance） $$ EV = 1 - \frac{Var{y-\hat y}}{Var{y}} $$ 2. 均方误差（MSE） $$ MSE(y, \hat y) = \frac{1}{n} \sum_{i=1}^N (\hat y_i - y_i)^2  $$ 3. 均方根误差（RMSE） $$ RMSE(y, \hat y) = \sqrt{\frac">
+<meta property="og:description" content="机器学习中回归模型的一些评估指标。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-08-02T07:04:03.524Z">
+<meta property="og:updated_time" content="2019-08-02T07:14:55.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="回归模型的评估指标">
-<meta name="twitter:description" content="1. 解释方差（Explained Variance） $$ EV = 1 - \frac{Var{y-\hat y}}{Var{y}} $$ 2. 均方误差（MSE） $$ MSE(y, \hat y) = \frac{1}{n} \sum_{i=1}^N (\hat y_i - y_i)^2  $$ 3. 均方根误差（RMSE） $$ RMSE(y, \hat y) = \sqrt{\frac">
+<meta name="twitter:description" content="机器学习中回归模型的一些评估指标。">
 
 
 
@@ -358,7 +358,7 @@
                 
               
 
-              <time title="创建时间：2019-08-02 14:47:01 / 修改时间：15:04:03" itemprop="dateCreated datePublished" datetime="2019-08-02T14:47:01+08:00">2019-08-02</time>
+              <time title="创建时间：2019-08-02 14:47:01 / 修改时间：15:14:55" itemprop="dateCreated datePublished" datetime="2019-08-02T14:47:01+08:00">2019-08-02</time>
             </span>
           
 
@@ -402,20 +402,23 @@
       
 
       
-        <h4>1. 解释方差（Explained Variance）</h4>
-<p>$$ EV = 1 - \frac{Var{y-\hat y}}{Var{y}} $$</p>
+        <p>机器学习中回归模型的一些评估指标。</p>
+<a id="more"></a>
+<h4>1. 解释方差（Explained Variance）</h4>
+<p>$$ EV(y, \hat y) = 1 - \frac{Var\{y-\hat y\}}{Var\{y\}} $$</p>
 <h4>2. 均方误差（MSE）</h4>
 <p>$$ MSE(y, \hat y) = \frac{1}{n} \sum_{i=1}^N (\hat y_i - y_i)^2  $$</p>
 <h4>3. 均方根误差（RMSE）</h4>
 <p>$$ RMSE(y, \hat y) = \sqrt{\frac{1}{n} \sum_{i=1}^N (\hat y_i - y_i)^2}  $$</p>
 <h4>4. 平均绝对误差（MAE）</h4>
-<p>$$ MAE(y, \hat y) = \frac{1}{N} \sum_(i=1)^N |\hat y_i - y_i| $$</p>
+<p>$$ MAE(y, \hat y) = \frac{1}{N} \sum_{i=1}^N |\hat y_i - y_i| $$</p>
 <h4>5. 均值平方对数误差（MSLE）</h4>
 <p>$$ MSLE(y, \hat y) = \frac{1}{N} \sum_{i=1}^N (ln(1+y_i)-ln(1+\hat y_i))^2 $$</p>
 <h4>6. 中位数绝对误差（MedianAE）</h4>
 <p>$$ MedAE(y,\hat y) = median(|y_1 - \hat y_1|, ..., |y_n-\hat y_n|) $$</p>
 <h4>7. R方（R Squared）</h4>
-<p>$$ R^2 = 1 - \frac{\sum_{i=1}^N(y_i - \hat y_i)^2}{\sum_{i=1}^N(y_i - \bar y) } $$</p>
+<p>$$ R^2 = 1 - \frac{\sum_{i=1}^N(y_i - \hat y_i)^2}{\sum_{i=1}^N(y_i - \bar y)^2 } $$
+结果在-1~1之间，如果结果为0，那么模型和猜测差不多，如果为1，说明模型没有误差，如果结果小于0，那么模型还不如随机猜测。</p>
 
       
     </div>
