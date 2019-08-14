@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[数据分箱提高分类模型性能]]></title>
+    <url>%2F2019%2F08%2F14%2F%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B%E4%B9%8B%E5%88%86%E7%AE%B1%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[回归模型的评估指标]]></title>
     <url>%2F2019%2F08%2F02%2F%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0%E6%8C%87%E6%A0%87%2F</url>
     <content type="text"><![CDATA[机器学习中回归模型的一些评估指标。 1. 解释方差（Explained Variance） $$ EV(y, \hat y) = 1 - \frac{Var\{y-\hat y\}}{Var\{y\}} $$ 2. 均方误差（MSE） $$ MSE(y, \hat y) = \frac{1}{n} \sum_{i=1}^N (\hat y_i - y_i)^2 $$ 3. 均方根误差（RMSE） $$ RMSE(y, \hat y) = \sqrt{\frac{1}{n} \sum_{i=1}^N (\hat y_i - y_i)^2} $$ 4. 平均绝对误差（MAE） $$ MAE(y, \hat y) = \frac{1}{N} \sum_{i=1}^N |\hat y_i - y_i| $$ 5. 均值平方对数误差（MSLE） $$ MSLE(y, \hat y) = \frac{1}{N} \sum_{i=1}^N (ln(1+y_i)-ln(1+\hat y_i))^2 $$ 6. 中位数绝对误差（MedianAE） $$ MedAE(y,\hat y) = median(|y_1 - \hat y_1|, ..., |y_n-\hat y_n|) $$ 7. R方（R Squared） $$ R^2 = 1 - \frac{\sum_{i=1}^N(y_i - \hat y_i)^2}{\sum_{i=1}^N(y_i - \bar y)^2 } $$ 结果在-1~1之间，如果结果为0，那么模型和猜测差不多，如果为1，说明模型没有误差，如果结果小于0，那么模型还不如随机猜测。]]></content>
