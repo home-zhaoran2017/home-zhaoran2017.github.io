@@ -94,14 +94,18 @@
   };
 </script>
 
-  <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo博客搭建教程">
-<meta property="og:url" content="http://yoursite.com/2019/07/25/Hexo博客搭建教程/index.html">
+  <meta name="description" content="在核主成分分析中，我们认为原始数据集有更高的维数，我们可以在更高维的空间中做PCA分析（即在更高维空间里，把原始数据向不同的方向投影）。原因在于：在低维空间难以线性分类的数据点，我们有可能再更高维度上找到合适的高维线性分类平面。">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="核主成分分析 Kernel PCA">
+<meta property="og:url" content="http://yoursite.com/2019/10/24/核主成分分析-Kernel-PCA/index.html">
 <meta property="og:site_name" content="Ran&#39;s Homepage">
+<meta property="og:description" content="在核主成分分析中，我们认为原始数据集有更高的维数，我们可以在更高维的空间中做PCA分析（即在更高维空间里，把原始数据向不同的方向投影）。原因在于：在低维空间难以线性分类的数据点，我们有可能再更高维度上找到合适的高维线性分类平面。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-25T09:19:15.624Z">
+<meta property="og:updated_time" content="2019-10-24T12:49:02.335Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo博客搭建教程">
+<meta name="twitter:title" content="核主成分分析 Kernel PCA">
+<meta name="twitter:description" content="在核主成分分析中，我们认为原始数据集有更高的维数，我们可以在更高维的空间中做PCA分析（即在更高维空间里，把原始数据向不同的方向投影）。原因在于：在低维空间难以线性分类的数据点，我们有可能再更高维度上找到合适的高维线性分类平面。">
 
 
 
@@ -109,7 +113,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/07/25/Hexo博客搭建教程/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/10/24/核主成分分析-Kernel-PCA/"/>
 
 
 
@@ -120,7 +124,7 @@
 </script>
 
   
-  <title>Hexo博客搭建教程 | Ran's Homepage</title>
+  <title>核主成分分析 Kernel PCA | Ran's Homepage</title>
   
 
 
@@ -311,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/25/Hexo博客搭建教程/"/>
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/24/核主成分分析-Kernel-PCA/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ran Zhao"/>
@@ -328,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo博客搭建教程
+          <h1 class="post-title" itemprop="name headline">核主成分分析 Kernel PCA
 
               
             
@@ -354,10 +358,14 @@
                 
               
 
-              <time title="创建时间：2019-07-25 17:19:15" itemprop="dateCreated datePublished" datetime="2019-07-25T17:19:15+08:00">2019-07-25</time>
+              <time title="创建时间：2019-10-24 17:06:46 / 修改时间：20:49:02" itemprop="dateCreated datePublished" datetime="2019-10-24T17:06:46+08:00">2019-10-24</time>
             </span>
           
 
+          
+            
+
+            
           
 
           
@@ -394,7 +402,67 @@
       
 
       
-        
+        <p>在核主成分分析中，我们认为原始数据集有更高的维数，我们可以在更高维的空间中做PCA分析（即在更高维空间里，把原始数据向不同的方向投影）。原因在于：在低维空间难以线性分类的数据点，我们有可能再更高维度上找到合适的高维线性分类平面。</p>
+<a id="more"></a>
+<h4>一. 核函数</h4>
+<h5>1. 核函数的定义</h5>
+<p>假设输入空间为X，特征空间为F（特征空间具有很高的维数，甚至无穷维），存在一个映射$\phi$将空间X中的点x映射到空间F中的点f：
+$$ \phi(x): X \rightarrow F $$
+实际应用中，我们难以确定映射$\phi$的具体形式，然而我们的主要计算需求是计算两个向量的内积，通过引入核函数，我们不需要知道映射的具体形式，便可通过低维空间的向量来计算高维空间向量的内积。<br>
+设：$x$，$z$是低维空间任意两个向量，那么核函数满足下述关系：
+$$ K(x,z) = \phi(x) \cdot \phi(z) $$</p>
+<p>比如我们定义如下二维到三维的映射函数（这里，$x_i$表示样本$x$的第$i$个分量）：
+$$ \phi(x) = (x_1^2, \sqrt{2} x_1 x_2, x_2^2) $$
+可以验证：
+$$ K(x,z) = \phi(x) \cdot \phi(z) = (x \cdot z)^2 $$</p>
+<h5>2. 核矩阵</h5>
+<p>任意两个样本点映射到高维空间后的内积组成的矩阵称为核函数矩阵（这里，$x_i$表示第$i$个样本）：
+$$
+\begin{bmatrix}
+\phi(x_1) \cdot \phi(x_1) &amp; ... &amp; \phi(x_1) \cdot \phi(x_N) \\
+...                       &amp; ... &amp; ... \\
+\phi(x_N) \cdot \phi(x_1) &amp; ... &amp; \phi(x_N) \cdot \phi(x_N)
+\end{bmatrix}
+$$</p>
+<p>常用的核函数的形式有如下几种：</p>
+<h6>(1) 线性核</h6>
+<p>$$ K(x,z) = x \cdot z $$</p>
+<h6>(2) 多项式核</h6>
+<p>$$ K(x,z) = (x \cdot z + 1)^r, r \in Z $$</p>
+<h6>(3) 高斯核</h6>
+<p>$$ K(x,z) = exp(-\frac{|x-z|^2}{2\sigma^2}), \sigma \in R, and\ \sigma \neq 0$$</p>
+<p>采用核函数避免直接将原始向量映射到高维空间进行内积计算，一方面避开了映射函数的寻找，另一方面也减少了运算量。不过如果映射后的空间维数过高，导致模型在训练集上过拟合，在测试集上的泛化能力往往不加。</p>
+<h4>二. 核技巧</h4>
+<p>与线性主成分分析不同，核主成分分析通过在高维有映射后的特征空间进行主成分分析，设我们的原始数据矩阵为$X$：
+$$ [x_1, x_2, ..., x_N] $$
+$x_i$表示数据集中的第$i$个样本，是一个维度为$d$的列向量，这里矩阵的每一列为一个样本，样本数为$N$。
+我们通过映射函数$\phi(x)$将所有样本映射到维度为$D$的特征空间$F$，映射后的数据矩阵为$\phi(X)$：
+$$ [\phi(x_1), \phi(x_2), ..., \phi(x_N)] $$
+接下来对数据集$\phi(X)$进行PCA处理，这里预先假设$\phi(X)$已经经过中心化处理：
+$$ \sum_{i}^{N} \phi(x_i) = 0 $$
+在特征空间里，数据集$\phi(X)$的协方差矩阵为：
+$$ C_F = \frac{1}{N} \phi(X) \phi(X)^T = \frac{1}{N} \sum_{i=1}^N \phi(x_i) \phi(x_i)^T $$
+PCA计算实质是求解协方差矩阵$C_F$的本征值问题：
+$$ C_F p = \lambda p $$
+即：
+$$ \sum_{i=1}^N \phi(x_i) \phi(x_i)^T p = \lambda p $$
+这里不考虑因子$\frac{1}{N}$<br>
+降维时我们考虑的是本征值$\lambda \neq 0$的成分，我们对上式两边同消去$\lambda$，得到：
+$$ p = \sum_{i=1}^N \phi(x_i) [ \phi(x_i)^T p ] $$
+注意到上式方括号中的值是一个常数，我们用$\alpha_i$代替，于是：
+$$ p = \sum_{i=1}^N \alpha_i \phi(x_i) = \phi(X) \alpha $$
+$\alpha$是一个$N$维的向量：$[\alpha_1, \alpha_2, ..., \alpha_N]^T $<br>
+这里得到一个结论：特征值不为0的特征向量可表示为高维空间样本向量的线性组合。<br>
+将上式带入$C_F$的本征方程中得：
+$$ \phi(X)^T \phi(X) \phi(X)^T \phi(X) \alpha = \lambda \phi(X)^T \phi(X) \alpha $$
+定义核函数矩阵为：$K=\phi(X)^T \phi(X)$，上式化简为：
+$$ K \cdot K \alpha = \lambda K \alpha $$
+参考文献[1]证明为求解上式，则只需求解下述本征方程，该本征方程的特征值即原问题的本征值。
+$$ K \alpha = \lambda \alpha $$</p>
+<blockquote>
+<p>[1] B. Scholkopf, A. J. Smola, K. Muller. Nonlinear component analysis as a kernel eigenvalue problem. Neural Computation 10 (5), 1299–1399, 1998.</p>
+</blockquote>
+
       
     </div>
 
@@ -419,6 +487,15 @@
 
     <footer class="post-footer">
       
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+        </div>
+      
 
       
       
@@ -428,8 +505,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/07/24/Python查询Solr/" rel="next" title="Python查询Solr">
-                <i class="fa fa-chevron-left"></i> Python查询Solr
+              <a href="/2019/10/24/主成分分析PCA/" rel="next" title="主成分分析PCA">
+                <i class="fa fa-chevron-left"></i> 主成分分析PCA
               </a>
             
           </div>
@@ -438,8 +515,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/07/25/NexT主题配置教程/" rel="prev" title="NexT主题配置教程">
-                NexT主题配置教程 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/12/24/Python-时间数据类型处理/" rel="prev" title="Python 时间数据类型处理">
+                Python 时间数据类型处理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -484,8 +561,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
 
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -582,6 +668,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">一. 核函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">1. 核函数的定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">2. 核矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.1.</span> <span class="nav-text">(1) 线性核</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.2.</span> <span class="nav-text">(2) 多项式核</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.3.</span> <span class="nav-text">(3) 高斯核</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">二. 核技巧</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -747,6 +850,53 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
