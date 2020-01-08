@@ -120,7 +120,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">Notes about program, math and life.</p>
+        <p class="site-subtitle">Notes about technology and life.</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -225,23 +225,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>机器学习中回归模型的一些评估指标。</p>
-<a id="more"></a>
-<h4>1. 解释方差（Explained Variance）</h4>
-<p>$$ EV(y, \hat y) = 1 - \frac{Var\{y-\hat y\}}{Var\{y\}} $$</p>
-<h4>2. 均方误差（MSE）</h4>
-<p>$$ MSE(y, \hat y) = \frac{1}{n} \sum_{i=1}^N (\hat y_i - y_i)^2  $$</p>
-<h4>3. 均方根误差（RMSE）</h4>
-<p>$$ RMSE(y, \hat y) = \sqrt{\frac{1}{n} \sum_{i=1}^N (\hat y_i - y_i)^2}  $$</p>
-<h4>4. 平均绝对误差（MAE）</h4>
-<p>$$ MAE(y, \hat y) = \frac{1}{N} \sum_{i=1}^N |\hat y_i - y_i| $$</p>
-<h4>5. 均值平方对数误差（MSLE）</h4>
-<p>$$ MSLE(y, \hat y) = \frac{1}{N} \sum_{i=1}^N (ln(1+y_i)-ln(1+\hat y_i))^2 $$</p>
-<h4>6. 中位数绝对误差（MedianAE）</h4>
-<p>$$ MedAE(y,\hat y) = median(|y_1 - \hat y_1|, ..., |y_n-\hat y_n|) $$</p>
-<h4>7. R方（R Squared）</h4>
-<p>$$ R^2 = 1 - \frac{\sum_{i=1}^N(y_i - \hat y_i)^2}{\sum_{i=1}^N(y_i - \bar y)^2 } $$
-结果在-1~1之间，如果结果为0，那么模型和猜测差不多，如果为1，说明模型没有误差，如果结果小于0，那么模型还不如随机猜测。</p>
+        <p>机器学习中回归模型的一些评估指标。<br><a id="more"></a></p>
+<h4 id="1-解释方差（Explained-Variance）"><a href="#1-解释方差（Explained-Variance）" class="headerlink" title="1. 解释方差（Explained Variance）"></a>1. 解释方差（Explained Variance）</h4><script type="math/tex; mode=display">EV(y, \hat y) = 1 - \frac{Var\\{y-\hat y\\}}{Var\\{y\\}}</script><h4 id="2-均方误差（MSE）"><a href="#2-均方误差（MSE）" class="headerlink" title="2. 均方误差（MSE）"></a>2. 均方误差（MSE）</h4><script type="math/tex; mode=display">MSE(y, \hat y) = \frac{1}{n} \sum\_{i=1}^N (\hat y\_i - y\_i)^2</script><h4 id="3-均方根误差（RMSE）"><a href="#3-均方根误差（RMSE）" class="headerlink" title="3. 均方根误差（RMSE）"></a>3. 均方根误差（RMSE）</h4><script type="math/tex; mode=display">RMSE(y, \hat y) = \sqrt{\frac{1}{n} \sum_{i=1}^N (\hat y_i - y_i)^2}</script><h4 id="4-平均绝对误差（MAE）"><a href="#4-平均绝对误差（MAE）" class="headerlink" title="4. 平均绝对误差（MAE）"></a>4. 平均绝对误差（MAE）</h4><script type="math/tex; mode=display">MAE(y, \hat y) = \frac{1}{N} \sum_{i=1}^N |\hat y_i - y_i|</script><h4 id="5-均值平方对数误差（MSLE）"><a href="#5-均值平方对数误差（MSLE）" class="headerlink" title="5. 均值平方对数误差（MSLE）"></a>5. 均值平方对数误差（MSLE）</h4><script type="math/tex; mode=display">MSLE(y, \hat y) = \frac{1}{N} \sum_{i=1}^N (ln(1+y_i)-ln(1+\hat y_i))^2</script><h4 id="6-中位数绝对误差（MedianAE）"><a href="#6-中位数绝对误差（MedianAE）" class="headerlink" title="6. 中位数绝对误差（MedianAE）"></a>6. 中位数绝对误差（MedianAE）</h4><script type="math/tex; mode=display">MedAE(y,\hat y) = median(|y_1 - \hat y_1|, ..., |y_n-\hat y_n|)</script><h4 id="7-R方（R-Squared）"><a href="#7-R方（R-Squared）" class="headerlink" title="7. R方（R Squared）"></a>7. R方（R Squared）</h4><script type="math/tex; mode=display">R^2 = 1 - \frac{\sum_{i=1}^N(y_i - \hat y_i)^2}{\sum_{i=1}^N(y_i - \bar y)^2 }</script><p>结果在-1~1之间，如果结果为0，那么模型和猜测差不多，如果为1，说明模型没有误差，如果结果小于0，那么模型还不如随机猜测。</p>
 
     </div>
 
@@ -326,7 +311,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">1. 解释方差（Explained Variance）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">2. 均方误差（MSE）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">3. 均方根误差（RMSE）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">4. 平均绝对误差（MAE）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">5. 均值平方对数误差（MSLE）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">6.</span> <span class="nav-text">6. 中位数绝对误差（MedianAE）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">7.</span> <span class="nav-text">7. R方（R Squared）</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-解释方差（Explained-Variance）"><span class="nav-number">1.</span> <span class="nav-text">1. 解释方差（Explained Variance）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-均方误差（MSE）"><span class="nav-number">2.</span> <span class="nav-text">2. 均方误差（MSE）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-均方根误差（RMSE）"><span class="nav-number">3.</span> <span class="nav-text">3. 均方根误差（RMSE）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-平均绝对误差（MAE）"><span class="nav-number">4.</span> <span class="nav-text">4. 平均绝对误差（MAE）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-均值平方对数误差（MSLE）"><span class="nav-number">5.</span> <span class="nav-text">5. 均值平方对数误差（MSLE）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-中位数绝对误差（MedianAE）"><span class="nav-number">6.</span> <span class="nav-text">6. 中位数绝对误差（MedianAE）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-R方（R-Squared）"><span class="nav-number">7.</span> <span class="nav-text">7. R方（R Squared）</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

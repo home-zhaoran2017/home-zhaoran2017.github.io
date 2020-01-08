@@ -126,7 +126,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-        <p class="site-subtitle">Notes about program, math and life.</p>
+        <p class="site-subtitle">Notes about technology and life.</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -248,113 +248,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>波士顿房价集来源于1978年美国某经济学杂志。该数据集包含若干波士顿房屋的价格及其各项数据，每个数据项包含14个数据，分别是房屋均价及周边犯罪率、是否在河边等相关信息，其中最后一个数据是房屋均价。</p>
-<a id="more"></a>
-<h4>数据集中有506条数据，13个特征，1个标签，这是一个回归问题。</h4>
-<h4>各个特征字段的说明如下：</h4>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">编号</th>
-<th style="text-align:left">字段</th>
-<th style="text-align:left">字段说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:left">CRIM</td>
-<td style="text-align:left">城镇人均犯罪率</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:left">ZN</td>
-<td style="text-align:left">住宅用地所占比例</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:left">INDUS</td>
-<td style="text-align:left">城镇中非商业用地所占比例</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:left">CHAS</td>
-<td style="text-align:left">CHAS查尔斯和虚拟变量</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:left">NOX</td>
-<td style="text-align:left">环保指标(一氧化氮浓度)</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:left">RM</td>
-<td style="text-align:left">每栋住宅的房间数</td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:left">AGE</td>
-<td style="text-align:left">1940年以前建成的自助单位比例</td>
-</tr>
-<tr>
-<td style="text-align:center">8</td>
-<td style="text-align:left">DIS</td>
-<td style="text-align:left">距离五个波士顿就业中心的加权距离</td>
-</tr>
-<tr>
-<td style="text-align:center">9</td>
-<td style="text-align:left">RAD</td>
-<td style="text-align:left">距离高速公路的便利指数</td>
-</tr>
-<tr>
-<td style="text-align:center">10</td>
-<td style="text-align:left">TAX</td>
-<td style="text-align:left">每一万美元的不动产税率</td>
-</tr>
-<tr>
-<td style="text-align:center">11</td>
-<td style="text-align:left">PTRATIO</td>
-<td style="text-align:left">城镇中教师学生比例</td>
-</tr>
-<tr>
-<td style="text-align:center">12</td>
-<td style="text-align:left">B</td>
-<td style="text-align:left">城镇中黑人比例</td>
-</tr>
-<tr>
-<td style="text-align:center">13</td>
-<td style="text-align:left">LSTAT</td>
-<td style="text-align:left">人口中地位低下者的比例</td>
-</tr>
-<tr>
-<td style="text-align:center">14</td>
-<td style="text-align:left">MEDV</td>
-<td style="text-align:left">平均房价</td>
-</tr>
-</tbody>
-</table>
-<h4>各特征的取值分布情况</h4>
-<h5>(1) CRIM</h5>
-<p><img src="https://tva3.sinaimg.cn/large/007DFXDhgy1g5i5uelkkij30fw099mx4.jpg" alt></p>
-<h5>(2) ZN</h5>
-<p><img src="https://tva3.sinaimg.cn/large/007DFXDhgy1g5i5wgcp7nj30fw0993yg.jpg" alt></p>
-<h5>(3) INDUS</h5>
-<p><img src="https://tva1.sinaimg.cn/large/007DFXDhgy1g5i5xvnlopj30fw099wef.jpg" alt></p>
-<h5>(4) CHAS</h5>
-<p><img src="https://tva4.sinaimg.cn/large/007DFXDhgy1g5i636tp3ej308708o749.jpg" alt></p>
-<h5>(5) NOX</h5>
-<p><img src="https://tva2.sinaimg.cn/large/007DFXDhgy1g5iqwv0k6kj30fp0990sn.jpg" alt></p>
-<h5>(6)</h5>
-<h5>(7)</h5>
-<h5>(8)</h5>
-<h5>(9)</h5>
-<h5>(10)</h5>
-<h5>(11)</h5>
-<h5>(12)</h5>
-<h5>(13)</h5>
-<h5>(14)</h5>
-<h4>关联矩阵</h4>
-<div align="center">
+        <p>波士顿房价集来源于1978年美国某经济学杂志。该数据集包含若干波士顿房屋的价格及其各项数据，每个数据项包含14个数据，分别是房屋均价及周边犯罪率、是否在河边等相关信息，其中最后一个数据是房屋均价。<br><a id="more"></a></p>
+<h4 id="数据集中有506条数据，13个特征，1个标签，这是一个回归问题。"><a href="#数据集中有506条数据，13个特征，1个标签，这是一个回归问题。" class="headerlink" title="数据集中有506条数据，13个特征，1个标签，这是一个回归问题。"></a>数据集中有506条数据，13个特征，1个标签，这是一个回归问题。</h4><h4 id="各个特征字段的说明如下："><a href="#各个特征字段的说明如下：" class="headerlink" title="各个特征字段的说明如下："></a>各个特征字段的说明如下：</h4><pre><code>编号|字段    | 字段说明                         
+:-: | :-|:-
+ 1  |CRIM    |城镇人均犯罪率                    
+ 2  |ZN      |住宅用地所占比例                  
+ 3  |INDUS   |城镇中非商业用地所占比例          
+ 4  |CHAS    |CHAS查尔斯和虚拟变量              
+ 5  |NOX     |环保指标(一氧化氮浓度)            
+ 6  |RM      |每栋住宅的房间数                  
+ 7  |AGE     |1940年以前建成的自助单位比例      
+ 8  |DIS     |距离五个波士顿就业中心的加权距离  
+ 9  |RAD     |距离高速公路的便利指数            
+10  |TAX     |每一万美元的不动产税率            
+11  |PTRATIO |城镇中教师学生比例                
+12  |B       |城镇中黑人比例                    
+13  |LSTAT   |人口中地位低下者的比例            
+14  |MEDV    |平均房价
+</code></pre><h4 id="各特征的取值分布情况"><a href="#各特征的取值分布情况" class="headerlink" title="各特征的取值分布情况"></a>各特征的取值分布情况</h4><h5 id="1-CRIM"><a href="#1-CRIM" class="headerlink" title="(1) CRIM"></a>(1) CRIM</h5><p><img src="https://tva3.sinaimg.cn/large/007DFXDhgy1g5i5uelkkij30fw099mx4.jpg" alt></p>
+<h5 id="2-ZN"><a href="#2-ZN" class="headerlink" title="(2) ZN"></a>(2) ZN</h5><p><img src="https://tva3.sinaimg.cn/large/007DFXDhgy1g5i5wgcp7nj30fw0993yg.jpg" alt></p>
+<h5 id="3-INDUS"><a href="#3-INDUS" class="headerlink" title="(3) INDUS"></a>(3) INDUS</h5><p><img src="https://tva1.sinaimg.cn/large/007DFXDhgy1g5i5xvnlopj30fw099wef.jpg" alt></p>
+<h5 id="4-CHAS"><a href="#4-CHAS" class="headerlink" title="(4) CHAS"></a>(4) CHAS</h5><p><img src="https://tva4.sinaimg.cn/large/007DFXDhgy1g5i636tp3ej308708o749.jpg" alt></p>
+<h5 id="5-NOX"><a href="#5-NOX" class="headerlink" title="(5) NOX"></a>(5) NOX</h5><p><img src="https://tva2.sinaimg.cn/large/007DFXDhgy1g5iqwv0k6kj30fp0990sn.jpg" alt></p>
+<h5 id="6"><a href="#6" class="headerlink" title="(6)"></a>(6)</h5><h5 id="7"><a href="#7" class="headerlink" title="(7)"></a>(7)</h5><h5 id="8"><a href="#8" class="headerlink" title="(8)"></a>(8)</h5><h5 id="9"><a href="#9" class="headerlink" title="(9)"></a>(9)</h5><h5 id="10"><a href="#10" class="headerlink" title="(10)"></a>(10)</h5><h5 id="11"><a href="#11" class="headerlink" title="(11)"></a>(11)</h5><h5 id="12"><a href="#12" class="headerlink" title="(12)"></a>(12)</h5><h5 id="13"><a href="#13" class="headerlink" title="(13)"></a>(13)</h5><h5 id="14"><a href="#14" class="headerlink" title="(14)"></a>(14)</h5><h4 id="关联矩阵"><a href="#关联矩阵" class="headerlink" title="关联矩阵"></a>关联矩阵</h4><div align="center">
 <img src="https://tva4.sinaimg.cn/large/007DFXDhgy1g5de0yiya8j30bn09rmx4.jpg">
 关联矩阵
 </div>
@@ -439,7 +355,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">数据集中有506条数据，13个特征，1个标签，这是一个回归问题。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">各个特征字段的说明如下：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">各特征的取值分布情况</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#null"><span class="nav-number">3.1.</span> <span class="nav-text">(1) CRIM</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#null"><span class="nav-number">3.2.</span> <span class="nav-text">(2) ZN</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#null"><span class="nav-number">3.3.</span> <span class="nav-text">(3) INDUS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#null"><span class="nav-number">3.4.</span> <span class="nav-text">(4) CHAS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#null"><span class="nav-number">3.5.</span> <span class="nav-text">(5) NOX</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#null"><span class="nav-number">3.6.</span> <span class="nav-text">(6)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#null"><span class="nav-number">3.7.</span> <span class="nav-text">(7)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#null"><span class="nav-number">3.8.</span> <span class="nav-text">(8)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#null"><span class="nav-number">3.9.</span> <span class="nav-text">(9)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#null"><span class="nav-number">3.10.</span> <span class="nav-text">(10)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#null"><span class="nav-number">3.11.</span> <span class="nav-text">(11)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#null"><span class="nav-number">3.12.</span> <span class="nav-text">(12)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#null"><span class="nav-number">3.13.</span> <span class="nav-text">(13)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#null"><span class="nav-number">3.14.</span> <span class="nav-text">(14)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">关联矩阵</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据集中有506条数据，13个特征，1个标签，这是一个回归问题。"><span class="nav-number">1.</span> <span class="nav-text">数据集中有506条数据，13个特征，1个标签，这是一个回归问题。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#各个特征字段的说明如下："><span class="nav-number">2.</span> <span class="nav-text">各个特征字段的说明如下：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#各特征的取值分布情况"><span class="nav-number">3.</span> <span class="nav-text">各特征的取值分布情况</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-CRIM"><span class="nav-number">3.1.</span> <span class="nav-text">(1) CRIM</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-ZN"><span class="nav-number">3.2.</span> <span class="nav-text">(2) ZN</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-INDUS"><span class="nav-number">3.3.</span> <span class="nav-text">(3) INDUS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-CHAS"><span class="nav-number">3.4.</span> <span class="nav-text">(4) CHAS</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-NOX"><span class="nav-number">3.5.</span> <span class="nav-text">(5) NOX</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6"><span class="nav-number">3.6.</span> <span class="nav-text">(6)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7"><span class="nav-number">3.7.</span> <span class="nav-text">(7)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8"><span class="nav-number">3.8.</span> <span class="nav-text">(8)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9"><span class="nav-number">3.9.</span> <span class="nav-text">(9)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10"><span class="nav-number">3.10.</span> <span class="nav-text">(10)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#11"><span class="nav-number">3.11.</span> <span class="nav-text">(11)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#12"><span class="nav-number">3.12.</span> <span class="nav-text">(12)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13"><span class="nav-number">3.13.</span> <span class="nav-text">(13)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#14"><span class="nav-number">3.14.</span> <span class="nav-text">(14)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关联矩阵"><span class="nav-number">4.</span> <span class="nav-text">关联矩阵</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
