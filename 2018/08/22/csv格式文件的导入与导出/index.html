@@ -46,19 +46,19 @@
   };
 </script>
 
-  <meta name="description" content="Love in the Future">
+  <meta name="description" content="在数据处理中，常遇到csv格式的文件，下面简要介绍如何使用Python中的Pandas模块来读取csv文件中的数据。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo博客搭建教程">
-<meta property="og:url" content="http://yoursite.com/2019/07/25/Hexo博客搭建教程/index.html">
+<meta property="og:title" content="csv格式文件的导入与导出">
+<meta property="og:url" content="http://yoursite.com/2018/08/22/csv格式文件的导入与导出/index.html">
 <meta property="og:site_name" content="Ran&#39;s Homepage">
-<meta property="og:description" content="Love in the Future">
+<meta property="og:description" content="在数据处理中，常遇到csv格式的文件，下面简要介绍如何使用Python中的Pandas模块来读取csv文件中的数据。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-25T09:19:15.624Z">
+<meta property="og:updated_time" content="2020-01-08T17:58:55.471Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo博客搭建教程">
-<meta name="twitter:description" content="Love in the Future">
+<meta name="twitter:title" content="csv格式文件的导入与导出">
+<meta name="twitter:description" content="在数据处理中，常遇到csv格式的文件，下面简要介绍如何使用Python中的Pandas模块来读取csv文件中的数据。">
 
-<link rel="canonical" href="http://yoursite.com/2019/07/25/Hexo博客搭建教程/">
+<link rel="canonical" href="http://yoursite.com/2018/08/22/csv格式文件的导入与导出/">
 
 
 <script id="page-configurations">
@@ -70,7 +70,7 @@
   };
 </script>
 
-  <title>Hexo博客搭建教程 | Ran's Homepage</title>
+  <title>csv格式文件的导入与导出 | Ran's Homepage</title>
   
 
 
@@ -186,7 +186,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/25/Hexo博客搭建教程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/22/csv格式文件的导入与导出/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -199,7 +199,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hexo博客搭建教程
+          csv格式文件的导入与导出
         </h1>
 
         <div class="post-meta">
@@ -209,7 +209,25 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-07-25 17:19:15" itemprop="dateCreated datePublished" datetime="2019-07-25T17:19:15+08:00">2019-07-25</time>
+              <time title="创建时间：2018-08-22 16:34:09" itemprop="dateCreated datePublished" datetime="2018-08-22T16:34:09+08:00">2018-08-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-01-09 01:58:55" itemprop="dateModified" datetime="2020-01-09T01:58:55+08:00">2020-01-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -223,7 +241,54 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p>在数据处理中，常遇到csv格式的文件，下面简要介绍如何使用Python中的Pandas模块来读取csv文件中的数据。</p>
+<a id="more"></a>
+<h2>CSV文件格式</h2>
+<p>CSV(Comma-Separated Values)文件以纯文本形式存储表格数据，文件由任意数目的记录
+组成，记录间以换行符分隔，每条记录由字段组成，字段间的分隔符可自定义，通常是
+逗号。下面的数据取自Kaggle中Titanic的乘客信息数据。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">PassengerId,Pclass,Name,Sex,Age,SibSp,Parch,Ticket,Fare,Cabin,Embarked</span><br><span class="line">892,3,&quot;Kelly, Mr. James&quot;,male,34.5,0,0,330911,7.8292,,Q</span><br><span class="line">893,3,&quot;Wilkes, Mrs. James (Ellen Needs)&quot;,female,47,1,0,363272,7,,S</span><br><span class="line">894,2,&quot;Myles, Mr. Thomas Francis&quot;,male,62,0,0,240276,9.6875,,Q</span><br><span class="line">895,3,&quot;Wirz, Mr. Albert&quot;,male,27,0,0,315154,8.6625,,S</span><br><span class="line">896,3,&quot;Hirvonen, Mrs. Alexander (Helga E Lindqvist)&quot;,female,22,1,1,3101298,12.2875,,S</span><br><span class="line">897,3,&quot;Svensson, Mr. Johan Cervin&quot;,male,14,0,0,7538,9.225,,S</span><br><span class="line">898,3,&quot;Connolly, Miss. Kate&quot;,female,30,0,0,330972,7.6292,,Q</span><br><span class="line">899,2,&quot;Caldwell, Mr. Albert Francis&quot;,male,26,1,1,248738,29,,S</span><br><span class="line">900,3,&quot;Abrahim, Mrs. Joseph (Sophie Halaut Easu)&quot;,female,18,0,0,2657,7.2292,,C</span><br><span class="line">901,3,&quot;Davies, Mr. John Samuel&quot;,male,21,2,0,A/4 48871,24.15,,S</span><br></pre></td></tr></table></figure>
+<h2>Pandas模块</h2>
+<ol>
+<li>
+<p>导入pandas模块</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>读取csv文件中的数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data = pd.read_csv(<span class="string">"train.csv"</span>,sep=<span class="string">','</span>)</span><br></pre></td></tr></table></figure>
+<p>参数<code>sep</code>设定csv文件中分隔符，默认为<code>,</code>。</p>
+</li>
+<li>
+<p>数据集对应的参数名</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.columns</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>第 $i$ 条记录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.iloc[i-1]</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>数据集的大小</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.shape</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>数据集的描述</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data.describe</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>数据集参数数组里的不同值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">titanic[<span class="string">'Sex'</span>].unique()</span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>数据集字符串到数字的映射</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">titanic.loc[titanic[<span class="string">'Sex'</span>]==<span class="string">'male'</span>,<span class="string">'Sex'</span>]=<span class="number">0</span></span><br><span class="line">titanic.loc[titanic[<span class="string">'Sex'</span>]==<span class="string">'female'</span>,<span class="string">'Sex'</span>]=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+</li>
+<li>
+<p>数据集中缺失数据的补填</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">titanic[<span class="string">'Age'</span>]=titanic[<span class="string">'Age'</span>].fillna(titanic[<span class="string">'Age'</span>].median())</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
     </div>
 
     
@@ -237,13 +302,10 @@
 
         
     <div class="post-nav">
+      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2019/05/15/json格式文件的导入与导出/" rel="prev" title="json格式文件的导入与导出">
-      <i class="fa fa-chevron-left"></i> json格式文件的导入与导出
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/2019/07/25/NexT主题配置教程/" rel="next" title="NexT主题配置教程">
-      NexT主题配置教程 <i class="fa fa-chevron-right"></i>
+    <a href="/2018/08/23/mnist数据集的导入/" rel="next" title="MNIST数据集">
+      MNIST数据集 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -304,6 +366,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">CSV文件格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">Pandas模块</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -425,6 +488,54 @@
   
 
   
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
 
   
 
