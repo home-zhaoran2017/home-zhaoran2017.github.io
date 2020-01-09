@@ -40,7 +40,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
   };
@@ -161,9 +161,34 @@
     <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -233,16 +258,27 @@
       
         <p>主成分分析是数据降维的重要手段，当样本中包含多个特征且特征之间强耦合时，将强耦合的特征综合成一个或几个特征，这样既减少了样本的维度，节约计算资源也减少过拟合的风险。在主成分分析中，每一个主成分都是数据集在某一个方向上的投影，不同方向上数据集的方差(variance)由该方向上的特征值(eigenvalue)决定，一般我们选择最大的几个特征值所在的特征向量(eigenvector)，认为在这些方向上，数据集包含了我们所需要的信息。</p>
 <a id="more"></a>
-<h4 id="1-数据集标准化"><a href="#1-数据集标准化" class="headerlink" title="1. 数据集标准化"></a>1. 数据集标准化</h4><p>假设我们有一个数据集，每个样本有d个特征，共N个样本，我们构建一个$d \times N$维的矩阵$X = [x_1, x_2, …, x_N]$，矩阵的每一列对应一个样本，矩阵的每一行对应一个特征。</p>
-<p>由于数据集中的每个特征来源于不同的变量，往往具有不同的量纲，数量级上相差较大，通常需将数据集进行标准化处理，即尽可能让特征分布接近标准正态分布（均值为0，标准差为1）。</p>
-<script type="math/tex; mode=display">x' = \frac{x-\mu}{\sigma}</script><p>$\mu$，$\sigma$分别是对应特征下的均值和标准差</p>
-<h4 id="2-协方差矩阵"><a href="#2-协方差矩阵" class="headerlink" title="2. 协方差矩阵"></a>2. 协方差矩阵</h4><p>协方差矩阵是一个$d \times d$的方阵，是计算两两特征之间的协方差得到的，故是一个对称方阵。</p>
-<script type="math/tex; mode=display">C = E[(X-\mu)(X-\mu)^T]</script><p>$\mu$是特征均值向量：</p>
-<script type="math/tex; mode=display">\mu = E(X)</script><h4 id="3-协方差矩阵的特征值与特征向量"><a href="#3-协方差矩阵的特征值与特征向量" class="headerlink" title="3. 协方差矩阵的特征值与特征向量"></a>3. 协方差矩阵的特征值与特征向量</h4><p>我们计算协方差矩阵的特征值和特征矢量，设d个特征矢量构成特征矩阵$U=[u_1, u_2, …, u_d]$，d个特征值构成对角矩阵$\Lambda = diag(\lambda_1, \lambda_2, …, \lambda_d)$，按照线性代数中矩阵特征矢量的定义有：</p>
-<script type="math/tex; mode=display">CU = U \Lambda</script><p>于是：</p>
-<script type="math/tex; mode=display">C = U \Lambda U^T</script><h4 id="4-方差贡献率"><a href="#4-方差贡献率" class="headerlink" title="4. 方差贡献率"></a>4. 方差贡献率</h4><p>每个主成分有与其对应的本征值，决定这该主成分的方差，方差越大表示该主成分包含的信息越多，方差越小，表示包含的信息越少（通常是数据噪声，但有时这部分成分也包含重要信息）。我们按照方差从大到小排序，选择前k个主成分（通常设定阈值90%，前k个主成分的累积方差贡献率不低于90%）。</p>
-<h4 id="5-数据降维"><a href="#5-数据降维" class="headerlink" title="5. 数据降维"></a>5. 数据降维</h4><p>选择对应的k个特征向量构成变换矩阵$U_k=[u_1, u_2, …, u_k]$，将变换矩阵作用在原始数据集上得到降维后的数据集：</p>
-<script type="math/tex; mode=display">Y = U_k^T X</script>
+<h4>1. 数据集标准化</h4>
+<p>假设我们有一个数据集，每个样本有d个特征，共N个样本，我们构建一个$d \times N$维的矩阵$X = [x_1, x_2, ..., x_N]$，矩阵的每一列对应一个样本，矩阵的每一行对应一个特征。</p>
+<p>由于数据集中的每个特征来源于不同的变量，往往具有不同的量纲，数量级上相差较大，通常需将数据集进行标准化处理，即尽可能让特征分布接近标准正态分布（均值为0，标准差为1）。
+$$ x' = \frac{x-\mu}{\sigma} $$
+$\mu$，$\sigma$分别是对应特征下的均值和标准差</p>
+<h4>2. 协方差矩阵</h4>
+<p>协方差矩阵是一个$d \times d$的方阵，是计算两两特征之间的协方差得到的，故是一个对称方阵。
+$$ C = E[(X-\mu)(X-\mu)^T] $$
+$\mu$是特征均值向量：
+$$\mu = E(X) $$</p>
+<h4>3. 协方差矩阵的特征值与特征向量</h4>
+<p>我们计算协方差矩阵的特征值和特征矢量，设d个特征矢量构成特征矩阵$U=[u_1, u_2, ..., u_d]$，d个特征值构成对角矩阵$\Lambda = diag(\lambda_1, \lambda_2, ..., \lambda_d)$，按照线性代数中矩阵特征矢量的定义有：
+$$ CU = U \Lambda $$
+于是：
+$$ C = U \Lambda U^T $$</p>
+<h4>4. 方差贡献率</h4>
+<p>每个主成分有与其对应的本征值，决定这该主成分的方差，方差越大表示该主成分包含的信息越多，方差越小，表示包含的信息越少（通常是数据噪声，但有时这部分成分也包含重要信息）。我们按照方差从大到小排序，选择前k个主成分（通常设定阈值90%，前k个主成分的累积方差贡献率不低于90%）。</p>
+<h4>5. 数据降维</h4>
+<p>选择对应的k个特征向量构成变换矩阵$U_k=[u_1, u_2, ..., u_k]$，将变换矩阵作用在原始数据集上得到降维后的数据集：
+$$ Y = U_k^T X $$</p>
+
     </div>
 
     
@@ -326,7 +362,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-数据集标准化"><span class="nav-number">1.</span> <span class="nav-text">1. 数据集标准化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-协方差矩阵"><span class="nav-number">2.</span> <span class="nav-text">2. 协方差矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-协方差矩阵的特征值与特征向量"><span class="nav-number">3.</span> <span class="nav-text">3. 协方差矩阵的特征值与特征向量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-方差贡献率"><span class="nav-number">4.</span> <span class="nav-text">4. 方差贡献率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-数据降维"><span class="nav-number">5.</span> <span class="nav-text">5. 数据降维</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">1. 数据集标准化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">2. 协方差矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">3. 协方差矩阵的特征值与特征向量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">4. 方差贡献率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">5.</span> <span class="nav-text">5. 数据降维</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -433,6 +469,8 @@
 
 
 
+
+  <script src="/js/local-search.js"></script>
 
 
 
