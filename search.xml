@@ -5,7 +5,7 @@
     <url>/2019/12/24/%E6%97%B6%E9%97%B4%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A4%84%E7%90%86/</url>
     <content><![CDATA[<p>编写Python程序处理数据时，常遇到时间格式的字符串数据，有时涉及到时间的加减运算。在Python中，有专门的时间结构的数据对象来表示时间数据，实际中，我们常喜欢用字符串数据来表示时间，或者整型的时间戳。因此常涉及这三种时间数据类型的转换操作。</p>
 <a id="more"></a>
-<p><img src="https://wx1.sinaimg.cn/mw690/714d7887ly1gapnyyktzaj20d209ndgs.jpg" alt></p>
+<p><img src="https://i.loli.net/2020/01/09/OTqAfpJQy6b9rxa.png" alt></p>
 <h3>获取当前时间戳</h3>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">seconds = time.time()</span><br></pre></td></tr></table></figure>
 <h3>时间戳格式转时间格式</h3>
