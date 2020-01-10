@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-01-09T01:55:23.502Z</updated>
+  <updated>2020-01-09T02:08:41.891Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>逻辑回归模型</title>
+    <link href="http://yoursite.com/2020/01/09/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B/"/>
+    <id>http://yoursite.com/2020/01/09/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B/</id>
+    <published>2020-01-09T02:08:41.000Z</published>
+    <updated>2020-01-09T02:08:41.891Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>时间数据类型处理</title>

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>逻辑回归模型</title>
+    <url>/2020/01/09/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>时间数据类型处理</title>
     <url>/2019/12/24/%E6%97%B6%E9%97%B4%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%A4%84%E7%90%86/</url>
     <content><![CDATA[<p>编写Python程序处理数据时，常遇到时间格式的字符串数据，有时涉及到时间的加减运算。在Python中，有专门的时间结构的数据对象来表示时间数据，实际中，我们常喜欢用字符串数据来表示时间，或者整型的时间戳。因此常涉及这三种时间数据类型的转换操作。</p>
