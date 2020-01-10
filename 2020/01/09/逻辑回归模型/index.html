@@ -46,17 +46,17 @@
   };
 </script>
 
-  <meta name="description" content="Love in the Future">
+  <meta name="description" content="逻辑回归是一种用于二分类问题的机器学习模型，它是一种广义线性模型，与线性模型假设预测变量$y$服从高斯分布不同，逻辑回归假设预测变量服从伯努利分布。逻辑回归引入$sigmoid$函数，将预测值映射到$[0,1]$区间，表示样本属于某一类的可能性，由于$sigmoid$函数的引入，使得逻辑回归可以很轻松的处理二分类问题。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="逻辑回归模型">
 <meta property="og:url" content="http://yoursite.com/2020/01/09/逻辑回归模型/index.html">
 <meta property="og:site_name" content="Ran&#39;s Homepage">
-<meta property="og:description" content="Love in the Future">
+<meta property="og:description" content="逻辑回归是一种用于二分类问题的机器学习模型，它是一种广义线性模型，与线性模型假设预测变量$y$服从高斯分布不同，逻辑回归假设预测变量服从伯努利分布。逻辑回归引入$sigmoid$函数，将预测值映射到$[0,1]$区间，表示样本属于某一类的可能性，由于$sigmoid$函数的引入，使得逻辑回归可以很轻松的处理二分类问题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-01-09T02:08:41.891Z">
+<meta property="og:updated_time" content="2020-01-09T02:37:46.657Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逻辑回归模型">
-<meta name="twitter:description" content="Love in the Future">
+<meta name="twitter:description" content="逻辑回归是一种用于二分类问题的机器学习模型，它是一种广义线性模型，与线性模型假设预测变量$y$服从高斯分布不同，逻辑回归假设预测变量服从伯努利分布。逻辑回归引入$sigmoid$函数，将预测值映射到$[0,1]$区间，表示样本属于某一类的可能性，由于$sigmoid$函数的引入，使得逻辑回归可以很轻松的处理二分类问题。">
 
 <link rel="canonical" href="http://yoursite.com/2020/01/09/逻辑回归模型/">
 
@@ -233,8 +233,20 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-01-09 10:08:41" itemprop="dateCreated datePublished" datetime="2020-01-09T10:08:41+08:00">2020-01-09</time>
+              <time title="创建时间：2020-01-09 10:08:41 / 修改时间：10:37:46" itemprop="dateCreated datePublished" datetime="2020-01-09T10:08:41+08:00">2020-01-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -248,7 +260,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p>逻辑回归是一种用于二分类问题的机器学习模型，它是一种广义线性模型，与线性模型假设预测变量$y$服从高斯分布不同，逻辑回归假设预测变量服从伯努利分布。逻辑回归引入$sigmoid$函数，将预测值映射到$[0,1]$区间，表示样本属于某一类的可能性，由于$sigmoid$函数的引入，使得逻辑回归可以很轻松的处理二分类问题。</p>
+<a id="more"></a>
+<h2>Logistic分布</h2>
+<h2>损失函数</h2>
+<h2>梯度下降求解</h2>
+<h2>正则化</h2>
+<blockquote>
+<p>[1] 阿泽<a href="https://zhuanlan.zhihu.com/p/74874291" target="_blank" rel="noopener">【机器学习】逻辑回归（非常详细）</a></p>
+</blockquote>
+
     </div>
 
     
@@ -266,7 +287,10 @@
     <a href="/2019/12/24/时间数据类型的处理/" rel="prev" title="时间数据类型处理">
       <i class="fa fa-chevron-left"></i> 时间数据类型处理
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/01/09/机器学习中的偏差与方差/" rel="next" title="机器学习中的偏差与方差">
+      机器学习中的偏差与方差 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -326,6 +350,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-text">Logistic分布</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-text">损失函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-text">梯度下降求解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-text">正则化</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -341,7 +366,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -354,7 +379,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -449,6 +474,54 @@
   
 
   
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
 
   
 

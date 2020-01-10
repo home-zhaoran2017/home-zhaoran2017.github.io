@@ -46,21 +46,20 @@
   };
 </script>
 
-  <meta name="description" content="波士顿房价集来源于1978年美国某经济学杂志。该数据集包含若干波士顿房屋的价格及其各项数据，每个数据项包含14个数据，分别是房屋均价及周边犯罪率、是否在河边等相关信息，其中最后一个数据是房屋均价。">
+  <meta name="description" content="线性回归是最简单的机器学习模型，和逻辑回归都是广义线性模型的一种特殊形式。线性模型假设模型的预测误差满足正态分布，在极大似然原理的基础上可以导出线性回归模型的损失函数的形式为平方误差函数。由于线性回归模型简单，易于解释，被广泛用于各种回归分析中。虽然模型简单，但是涉及到机器学习模型的许多基础概念，对线性模型的学习有助于对机器学习一些基本概念的深入理解。">
+<meta name="keywords" content="线性回归,梯度下降">
 <meta property="og:type" content="article">
-<meta property="og:title" content="波士顿房价数据分析">
-<meta property="og:url" content="http://yoursite.com/2019/07/26/波士顿房价数据分析/index.html">
+<meta property="og:title" content="线性回归模型">
+<meta property="og:url" content="http://yoursite.com/2018/08/23/线性回归模型/index.html">
 <meta property="og:site_name" content="Ran&#39;s Homepage">
-<meta property="og:description" content="波士顿房价集来源于1978年美国某经济学杂志。该数据集包含若干波士顿房屋的价格及其各项数据，每个数据项包含14个数据，分别是房屋均价及周边犯罪率、是否在河边等相关信息，其中最后一个数据是房屋均价。">
+<meta property="og:description" content="线性回归是最简单的机器学习模型，和逻辑回归都是广义线性模型的一种特殊形式。线性模型假设模型的预测误差满足正态分布，在极大似然原理的基础上可以导出线性回归模型的损失函数的形式为平方误差函数。由于线性回归模型简单，易于解释，被广泛用于各种回归分析中。虽然模型简单，但是涉及到机器学习模型的许多基础概念，对线性模型的学习有助于对机器学习一些基本概念的深入理解。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://i.loli.net/2020/01/09/p2YljZRkX6hObBa.png">
-<meta property="og:updated_time" content="2020-01-09T03:46:26.670Z">
+<meta property="og:updated_time" content="2020-01-09T15:49:52.722Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="波士顿房价数据分析">
-<meta name="twitter:description" content="波士顿房价集来源于1978年美国某经济学杂志。该数据集包含若干波士顿房屋的价格及其各项数据，每个数据项包含14个数据，分别是房屋均价及周边犯罪率、是否在河边等相关信息，其中最后一个数据是房屋均价。">
-<meta name="twitter:image" content="https://i.loli.net/2020/01/09/p2YljZRkX6hObBa.png">
+<meta name="twitter:title" content="线性回归模型">
+<meta name="twitter:description" content="线性回归是最简单的机器学习模型，和逻辑回归都是广义线性模型的一种特殊形式。线性模型假设模型的预测误差满足正态分布，在极大似然原理的基础上可以导出线性回归模型的损失函数的形式为平方误差函数。由于线性回归模型简单，易于解释，被广泛用于各种回归分析中。虽然模型简单，但是涉及到机器学习模型的许多基础概念，对线性模型的学习有助于对机器学习一些基本概念的深入理解。">
 
-<link rel="canonical" href="http://yoursite.com/2019/07/26/波士顿房价数据分析/">
+<link rel="canonical" href="http://yoursite.com/2018/08/23/线性回归模型/">
 
 
 <script id="page-configurations">
@@ -72,7 +71,7 @@
   };
 </script>
 
-  <title>波士顿房价数据分析 | Ran's Homepage</title>
+  <title>线性回归模型 | Ran's Homepage</title>
   
 
 
@@ -213,7 +212,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/26/波士顿房价数据分析/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/23/线性回归模型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -226,7 +225,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          波士顿房价数据分析
+          线性回归模型
         </h1>
 
         <div class="post-meta">
@@ -236,14 +235,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2019-07-26 16:09:46" itemprop="dateCreated datePublished" datetime="2019-07-26T16:09:46+08:00">2019-07-26</time>
+              <time title="创建时间：2018-08-23 12:38:12" itemprop="dateCreated datePublished" datetime="2018-08-23T12:38:12+08:00">2018-08-23</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-09 11:46:26" itemprop="dateModified" datetime="2020-01-09T11:46:26+08:00">2020-01-09</time>
+                <time title="修改时间：2020-01-09 23:49:52" itemprop="dateModified" datetime="2020-01-09T23:49:52+08:00">2020-01-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -251,8 +250,8 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Data-Analysis/" itemprop="url" rel="index">
-                    <span itemprop="name">Data Analysis</span>
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
                   </a>
                 </span>
             </span>
@@ -268,107 +267,116 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>波士顿房价集来源于1978年美国某经济学杂志。该数据集包含若干波士顿房屋的价格及其各项数据，每个数据项包含14个数据，分别是房屋均价及周边犯罪率、是否在河边等相关信息，其中最后一个数据是房屋均价。</p>
+        <p>线性回归是最简单的机器学习模型，和逻辑回归都是广义线性模型的一种特殊形式。线性模型假设模型的预测误差满足正态分布，在极大似然原理的基础上可以导出线性回归模型的损失函数的形式为平方误差函数。由于线性回归模型简单，易于解释，被广泛用于各种回归分析中。虽然模型简单，但是涉及到机器学习模型的许多基础概念，对线性模型的学习有助于对机器学习一些基本概念的深入理解。</p>
 <a id="more"></a>
-<p>数据集中有506条数据，13个特征，1个预测变量，数据集的具体情况下表简单说明。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">编号</th>
-<th style="text-align:left">特征</th>
-<th style="text-align:left">特征说明</th>
-<th style="text-align:left">简单统计</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1</td>
-<td style="text-align:left">CRIM</td>
-<td style="text-align:left">城镇人均犯罪率</td>
-<td style="text-align:left">最高：88.97；最低：0.0063；平均：3.6135；中位数：0.2565</td>
-</tr>
-<tr>
-<td style="text-align:center">2</td>
-<td style="text-align:left">ZN</td>
-<td style="text-align:left">住宅用地所占比例</td>
-<td style="text-align:left">最高：100；最低：0；平均：11.3636；中位数：0</td>
-</tr>
-<tr>
-<td style="text-align:center">3</td>
-<td style="text-align:left">INDUS</td>
-<td style="text-align:left">城镇中非商业用地所占比例</td>
-<td style="text-align:left">最高：27.74；最低：0.46；平均：11.13；中位数：9.69</td>
-</tr>
-<tr>
-<td style="text-align:center">4</td>
-<td style="text-align:left">CHAS</td>
-<td style="text-align:left">CHAS查尔斯和虚拟变量</td>
-<td style="text-align:left">只有两种取值：0和1，471个样本取值为0；35个样本取值为1</td>
-</tr>
-<tr>
-<td style="text-align:center">5</td>
-<td style="text-align:left">NOX</td>
-<td style="text-align:left">环保指标(一氧化氮浓度)</td>
-<td style="text-align:left">最高：0.8710；最低：0.3850；平均：0.5547；中位数：0.5380</td>
-</tr>
-<tr>
-<td style="text-align:center">6</td>
-<td style="text-align:left">RM</td>
-<td style="text-align:left">每栋住宅的房间数</td>
-<td style="text-align:left">最高：8.780；最低：3.561；平均：6.285；中位数：6.208</td>
-</tr>
-<tr>
-<td style="text-align:center">7</td>
-<td style="text-align:left">AGE</td>
-<td style="text-align:left">1940年以前建成的自助单位比例</td>
-<td style="text-align:left">最高：100；最低：2.9；平均：68.57；中位数：77.5</td>
-</tr>
-<tr>
-<td style="text-align:center">8</td>
-<td style="text-align:left">DIS</td>
-<td style="text-align:left">距离五个波士顿就业中心的加权距离</td>
-<td style="text-align:left">最高：12.1265；最低：1.1296；平均：3.7950；中位数：3.2074</td>
-</tr>
-<tr>
-<td style="text-align:center">9</td>
-<td style="text-align:left">RAD</td>
-<td style="text-align:left">距离高速公路的便利指数</td>
-<td style="text-align:left">最高：24.0；最低：1.0；平均：0.5494；中位数：5.0</td>
-</tr>
-<tr>
-<td style="text-align:center">10</td>
-<td style="text-align:left">TAX</td>
-<td style="text-align:left">每一万美元的不动产税率</td>
-<td style="text-align:left">最高：711.0；最低：187.0；平均：408.2；中位数：330</td>
-</tr>
-<tr>
-<td style="text-align:center">11</td>
-<td style="text-align:left">PTRATIO</td>
-<td style="text-align:left">城镇中教师学生比例</td>
-<td style="text-align:left">最高：22.0；最低：12.6；平均：18.45；中位数：19.05</td>
-</tr>
-<tr>
-<td style="text-align:center">12</td>
-<td style="text-align:left">B</td>
-<td style="text-align:left">城镇中黑人比例</td>
-<td style="text-align:left">最高：396.9；最低：0.32；平均：356.67；中位数：391.44</td>
-</tr>
-<tr>
-<td style="text-align:center">13</td>
-<td style="text-align:left">LSTAT</td>
-<td style="text-align:left">人口中地位低下者的比例</td>
-<td style="text-align:left">最高：37.97；最低：1.73；平均：12.65；中位数：11.36</td>
-</tr>
-<tr>
-<td style="text-align:center">14</td>
-<td style="text-align:left">MEDV</td>
-<td style="text-align:left">平均房价</td>
-<td style="text-align:left">最高：50.0；最低：5.0；平均：22.53；中位数：21.2</td>
-</tr>
-</tbody>
-</table>
-<p>其中有三个特征与预测变量的相关系数高于0.5，分别是：LSTAT，RM，PTRATIO，它们与预测变量的散点图如下：
-<img src="https://i.loli.net/2020/01/09/p2YljZRkX6hObBa.png" alt></p>
+<h2>一. 基本形式</h2>
+<p>由$d$个属性描述的实例$x=(x_1; x_2; ...; x_d)$，线性回归试图学习一个通过属性的线性组合来进行预测的函数：
+$$ f(x)=w_1 x^1 + w_2 x^2 + ... + w_d x^d + b$$</p>
+<!-- more -->
+<p>我们可以用向量形式表达如下：
+$$ f(x)=w^T x+b $$
+其中：
+$ w =
+\begin{pmatrix}
+{ w_1 } \\
+{ w_2 } \\
+{ ... } \\
+{ w_d }
+\end{pmatrix}
+$
+是权重系数向量，b是模型的偏置。
+预测结果与实际值的差异称为残差：
+$$ \epsilon_i = y_i - \hat y_i $$
+线性归回有五个基本假设：</p>
+<ul>
+<li>
+<p><strong>线性性与可加性</strong><br>
+线性性即$x^i$没变动一个单位，$f(x)$相应变动$w_i$个单位，与$x^i$的具体数值无关；可加性说明$x^i$对$f(x)$的影响独立与其它变量。</p>
+</li>
+<li>
+<p><strong>残差项相互独立</strong><br>
+若不互相独立，那么模型具有自相关性，此时数据集认为是一个时序数据，需要时序模型去处理。</p>
+</li>
+<li>
+<p><strong>自变量间相互独立</strong><br>
+若不满足，那么模型具有多重共线性。</p>
+</li>
+<li>
+<p><strong>残差项方差为常数</strong><br>
+满足时，模型具有同方差性；不满足模型具有异方差性，异方差性常常出现在有异常值的数据集上。</p>
+</li>
+<li>
+<p><strong>残差项满足正态分布</strong><br>
+$$
+f(\epsilon_i;\mu,\sigma) = \frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(\epsilon_i-\mu)^2}{2\sigma^2}}
+$$</p>
+</li>
+</ul>
+<h2>二. 损失函数</h2>
+<p>模型的参数$w, b$决定模型预测能力的好坏，模型在训练集中的预测值与实际值的差距是我们的建模误差，代价函数即定义为模型预测误差的平方和：
+$$ L(w, b) = \frac{1}{2m} \sum_{i=1}^{N}(f(x_i)-y_i)^2 $$</p>
+<p>我们的目标是选择使代价函数最小的模型参数：</p>
+<p>$$  w^*, b^* = \underset{w,b}{\arg \min}\ L(w,b) = \underset{w,b}{\arg \min}\ \frac{1}{2m} \sum_{i=1}^{N}(f(x_i)-y_i)^2 $$</p>
+<h2>三. 梯度下降法</h2>
+<p>$$
+\begin{cases}
+w = w - \alpha \frac{\partial}{\partial w} L(w,b) \\
+b = b - \alpha \frac{\partial}{\partial b} L(w,b)
+\end{cases}
+$$
+这里，$\alpha$ 是学习率，偏导数的计算公式如下：
+\begin{cases}
+\frac{\partial}{\partial b} L(w,b) = \frac{1}{N}\sum\limits_{i=1}^{N}(f(x_i)-y_i) \\
+\frac{\partial}{\partial w} L(w,b) = \frac{1}{N}\sum\limits_{i=1}^{N}((f(x_i)-y_i) x_i)
+\end{cases}</p>
+<h2>四. 最小二乘法</h2>
+<h2>五. 欠拟合与过拟合</h2>
+<p>如果我们仅仅只是寻找模型的损失函数何时取得最小值（在训练数据上误差最小），这么这只是一个最优化问题；当我们同时要求模型在未知数据（测试数据）上误差也尽可能小时，这是便是一个学习问题。机器学习中我们很看中模型在未知数据上的泛化能力，泛化能力强的模型才是好的模型。</p>
+<p>对于训练好的模型，如果模型在训练集上的预测误差较大，那么它在测试集上的误差也会较大，这通常是欠拟合导致的；如果模型在训练集上的表现良好，而在测试集上的误差不尽人意，此时模型过拟合了。从偏差（bias）与方差（variance）的角度来解释这种现象：欠拟合会导致较高的偏差，过拟合会导致较高的方差，所以模型需要在偏差与方差之间做出一个权衡。</p>
+<p>发生欠拟合时，模型通常没有很好的捕捉到数据的特征，一般解决方法有：</p>
+<ul>
+<li>增加特征数目，如新特征，特征组合，高次特征（多项式特征）等。</li>
+<li>考虑非线性模型，如核SVM等。</li>
+<li>减小正则化参数</li>
+<li>局部加权回归</li>
+<li>Boosting</li>
+</ul>
+<p>过拟合的一般解决方法有：</p>
+<ul>
+<li>simpler model structure（合适模型）</li>
+<li>regularization（正则化）</li>
+<li>data augmentation（数据集扩增）</li>
+<li>dropout（删除隐藏层结点个数）</li>
+<li>Bootstrap/Bagging（封装）</li>
+<li>ensemble（集成）</li>
+<li>early stopping（提前终止迭代）</li>
+<li>utilize invariance（利用不变性）</li>
+<li>Bayesian（贝叶斯方法）</li>
+</ul>
+<p>在线性回归模型中，常用正则化类解决过拟合现象，正则化分为两种L1正则化和L2正则化，分别对应着两种线性回归：<strong>Lasso回归</strong>和<strong>Ridge回归</strong>。</p>
+<p>有多种角度可以解释过拟合现象：</p>
+<ul>
+<li>
+<p>经典的从偏置-方差的角度解释，“正则化可以增大偏差当时降低方差”；</p>
+</li>
+<li>
+<p>PAC学习理论认为正则化降低了模型的拟合能力，使得模型结构变得简单，模型的VC维下降，从而模型的期望误差与风险误差的区别越小。</p>
+</li>
+<li>
+<p>贝叶斯先验解释认为正则化相当于给模型的参数引入先验概率。在L1正则化中，认为模型的参数满足拉普拉斯分布；L2正则化中，认为模型的参数满足标准高斯分布。通过对贝叶斯后验概率最大化（最大后验估计），可以推导出带L1或L2正则项的损失函数。</p>
+</li>
+<li>
+<p>奥卡姆剃刀原则“保证性能差别不大的情况下，越是简单的模型泛化性能越好”</p>
+</li>
+</ul>
+<h5>参考文献：</h5>
+<blockquote>
+<p>[1] 知乎.小马：<a href="https://zhuanlan.zhihu.com/p/95714027" target="_blank" rel="noopener">机器学习-线性回归2-正则化</a><br>
+[2] 知乎.慢慢成长：<a href="https://zhuanlan.zhihu.com/p/29707029" target="_blank" rel="noopener">机器学习防止欠拟合、过拟合方法</a><br>
+[3] 知乎.十三：<a href="https://zhuanlan.zhihu.com/p/62457875" target="_blank" rel="noopener">线性回归中的正则化</a><br>
+[4] 知乎.bingo酱：<a href="https://zhuanlan.zhihu.com/p/35356992" target="_blank" rel="noopener">L1正则化与L2正则化</a><br>
+[5] CSDN.Noob_daniel：<a href="https://blog.csdn.net/Noob_daniel/article/details/76087829" target="_blank" rel="noopener">回归分析的五个基本假设</a></p>
+</blockquote>
 
     </div>
 
@@ -377,6 +385,10 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/线性回归/" rel="tag"># 线性回归</a>
+              <a href="/tags/梯度下降/" rel="tag"># 梯度下降</a>
+          </div>
 
         
 
@@ -384,12 +396,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/07/25/NexT主题配置教程/" rel="prev" title="NexT主题配置教程">
-      <i class="fa fa-chevron-left"></i> NexT主题配置教程
+    <a href="/2018/08/23/mnist数据集的导入/" rel="prev" title="MNIST数据集">
+      <i class="fa fa-chevron-left"></i> MNIST数据集
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/08/02/回归模型的评估指标/" rel="next" title="回归模型的评估指标">
-      回归模型的评估指标 <i class="fa fa-chevron-right"></i>
+    <a href="/2019/05/15/json格式文件的导入与导出/" rel="next" title="json格式文件的导入与导出">
+      json格式文件的导入与导出 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -450,6 +462,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-text">一. 基本形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-text">二. 损失函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-text">三. 梯度下降法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-text">四. 最小二乘法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-text">五. 欠拟合与过拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#null"><span class="nav-text">参考文献：</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -573,6 +586,54 @@
   
 
   
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
 
   
 
