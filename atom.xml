@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-24T06:01:20.769Z</updated>
+  <updated>2021-06-02T16:55:23.707Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,17 +17,71 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>随机赌徒机</title>
+    <link href="http://yoursite.com/2021/06/03/stochastic-bandits/"/>
+    <id>http://yoursite.com/2021/06/03/stochastic-bandits/</id>
+    <published>2021-06-02T16:27:10.000Z</published>
+    <updated>2021-06-02T16:55:23.707Z</updated>
+    
+    <content type="html"><![CDATA[<p>随机多臂赌徒机是一类重要的模型。</p><a id="more"></a><h2>一、定义</h2><p>设有这样的一个赌徒机，赌徒机有K个臂，我们有T次摇动赌臂的机会，设第t次选择的臂是$a_t$，该臂返回一个奖励$r_t$，满足：$r_t \in [0,1]$，是区间$[0,1]$上的一个分布。每个臂对应一个分布，且满足独立同分布假设（IID，independent and identically distributed）</p><p>平均奖励向量：$\mu \in [0,1]^K$</p><p>$\mu(a) = E(D_a)$表示赌臂a的平均奖励，是该臂对应奖励分布$D_a$的期望。</p><p>最简单的情形是Bernouli distribution，奖励返回两个值0，1。</p><p>许多应用场景其实对应一个随机多臂赌徒机</p><ul><li>News</li><li>Ad selection</li><li>Medical Trials</li></ul><p>遗憾（Regret）：$$ R(T) = \mu^* \cdot T - \sum_{t=1}^T \mu(a_t) $$</p><p>一个简单的算法：均匀探索（uniform exploration）</p><ol><li>探索期间：每个赌臂尝试N次</li><li>选择具有最高平均奖励的赌臂$\hat a$</li><li>利用期间：剩下的回合一直选择赌臂$\hat a$</li></ol><p>利用Hoeffding inequality可以证明：$$ P\left(|\overline{\mu}(a) - \mu(a)| \leq r(a) \right) \geq 1 - \frac{2}{T^4} $$</p><p>定理：探索优先的算法可以具有遗憾值：$$ E[R(T)] \leq T^{2/3} \times O(K \log T)^{1/3} $$</p><p>$\epsilon$-贪婪算法</p><p>可实现的期望遗憾值：$$ \epsilon_t = t^{-1/3} \cdot (K \log t)^{1/3} $$$$ E[R(t)] \leq t^{2/3} \cdot O(K \log t)^{1/3} $$</p><p>自适应探索算法（adaptive exploration）</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;随机多臂赌徒机是一类重要的模型。&lt;/p&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>矩阵LU分解</title>
+    <link href="http://yoursite.com/2021/01/29/%E7%9F%A9%E9%98%B5LU%E5%88%86%E8%A7%A3/"/>
+    <id>http://yoursite.com/2021/01/29/%E7%9F%A9%E9%98%B5LU%E5%88%86%E8%A7%A3/</id>
+    <published>2021-01-28T16:14:18.000Z</published>
+    <updated>2021-01-28T17:00:04.722Z</updated>
+    
+    <content type="html"><![CDATA[<a id="more"></a><h2>一. 定义</h2><p>一个方阵 $A$ 分解成下三角阵和上三角阵的乘积：$$ A = LU $$$A$ 是一个 $n \times n$ 的方阵，这里设 $A$ 是一个 $4 \times 4$ 的方阵：$$A=\begin{bmatrix}a_{11} &amp; a_{12} &amp; a_{13} &amp; a_{14} \\a_{21} &amp; a_{22} &amp; a_{23} &amp; a_{24} \\a_{31} &amp; a_{32} &amp; a_{33} &amp; a_{34} \\a_{41} &amp; a_{42} &amp; a_{43} &amp; a_{44}\end{bmatrix}$$</p><p>$L$ 是一个下三角矩阵：$$L =\begin{bmatrix}\alpha_{11} &amp; 0 &amp; 0 &amp; 0 \\\alpha_{21} &amp; \alpha_{22} &amp; 0 &amp; 0 \\\alpha_{31} &amp; \alpha_{32} &amp; \alpha_{33} &amp; 0 \\\alpha_{41} &amp; \alpha_{42} &amp; \alpha_{43} &amp;\alpha_{44}\end{bmatrix}$$</p><p>$U$ 是一个上三角矩阵：$$U =\begin{bmatrix}\beta_{11} &amp; \beta_{12} &amp; \beta_{13} &amp; \beta_{14} \\0 &amp; \beta_{22} &amp; \beta_{23} &amp; \beta_{24} \\0 &amp; 0 &amp; \beta_{33} &amp; \beta_{34} \\0 &amp; 0 &amp; 0 &amp; \beta_{44}\end{bmatrix}$$于是：$$\begin{bmatrix}\alpha_{11} &amp; 0 &amp; 0 &amp; 0 \\\alpha_{21} &amp; \alpha_{22} &amp; 0 &amp; 0 \\\alpha_{31} &amp; \alpha_{32} &amp; \alpha_{33} &amp; 0 \\\alpha_{41} &amp; \alpha_{42} &amp; \alpha_{43} &amp;\alpha_{44}\end{bmatrix} \times\begin{bmatrix}\beta_{11} &amp; \beta_{12} &amp; \beta_{13} &amp; \beta_{14} \\0 &amp; \beta_{22} &amp; \beta_{23} &amp; \beta_{24} \\0 &amp; 0 &amp; \beta_{33} &amp; \beta_{34} \\0 &amp; 0 &amp; 0 &amp; \beta_{44}\end{bmatrix} =\begin{bmatrix}a_{11} &amp; a_{12} &amp; a_{13} &amp; a_{14} \\a_{21} &amp; a_{22} &amp; a_{23} &amp; a_{24} \\a_{31} &amp; a_{32} &amp; a_{33} &amp; a_{34} \\a_{41} &amp; a_{42} &amp; a_{43} &amp; a_{44}\end{bmatrix}$$</p><h2>二. 如何进行LU分解</h2><p>上式中，等式右边第 i，j 个元素的计算如下：$$ a_{ij} = \alpha_{i,1}\beta_{1,j} + \alpha_{i,2}\beta_{2,j} + \cdots \alpha_{i,n}\beta_{n,j}$$</p><h2>三. 用途</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2&gt;一. 定义&lt;/h2&gt;
+&lt;p&gt;一个方阵 $A$ 分解成下三角阵和上三角阵的乘积：
+$$ A = LU $$
+$A$ 是一个 $n \times n$ 的方阵，这里设 $A$ 是一个 $4 \times 4$ 的方阵：
+$$
+A=
+\beg
+      
+    
+    </summary>
+    
+    
+      <category term="Linear Algebra" scheme="http://yoursite.com/categories/Linear-Algebra/"/>
+    
+    
+      <category term="数值计算" scheme="http://yoursite.com/tags/%E6%95%B0%E5%80%BC%E8%AE%A1%E7%AE%97/"/>
+    
+      <category term="线性代数" scheme="http://yoursite.com/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>C语言科学计算库(GSL)</title>
     <link href="http://yoursite.com/2020/04/24/C%E8%AF%AD%E8%A8%80%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%E5%BA%93-GSL/"/>
     <id>http://yoursite.com/2020/04/24/C%E8%AF%AD%E8%A8%80%E7%A7%91%E5%AD%A6%E8%AE%A1%E7%AE%97%E5%BA%93-GSL/</id>
     <published>2020-04-24T05:56:28.000Z</published>
-    <updated>2020-04-24T06:01:20.769Z</updated>
+    <updated>2020-04-24T06:45:34.968Z</updated>
     
-    <content type="html"><![CDATA[<p>C语言科学计算库GSL</p><a id="more"></a><h1>1. 随机数生成</h1><h1>2. 概率分布</h1><h1>3. 向量数据类型</h1><h1>4. 矩阵数据类型</h1>]]></content>
+    <content type="html"><![CDATA[<p>GNU Scientific Library (GSL) 是一个用于科学计算的开源 C 语言类库，有超过 1000 个函数用于数值积分，随机数生成，矩阵计算等方面的计算，这里简要介绍概率与线性代数相关的计算函数。</p><a id="more"></a><h2>一. 随机数生成</h2><ol><li><p>随机数生成相关的函数声明放置在头文件gsl_rng.h中，按照如下方式导入：</p> <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;gsl/gsl_rng.h&gt;</span></span></span><br></pre></td></tr></table></figure></li></ol><ol start="2"><li><p>建立一个随机数生成器r并设置seed=2020：</p> <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> gsl_rng_type *T;</span><br><span class="line">T = gsl_rng_default;</span><br><span class="line">gsl_rng *r = gsl_rng_alloc(T);</span><br><span class="line">gsl_rng_set(r, <span class="number">2020</span>)</span><br></pre></td></tr></table></figure></li></ol><ol start="3"><li><p>从随机数生成器r中获得一个随机数</p> <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数原型为：unsigned long int gsl_rng_get(const gsl_rng *r)</span></span><br><span class="line"></span><br><span class="line">unsigined <span class="keyword">long</span> <span class="keyword">int</span> r_num;</span><br><span class="line">r_num = gsl_rng_get(r);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%u\n"</span>, r_num);</span><br></pre></td></tr></table></figure></li><li><p>获取随机数的表示范围</p> <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">int</span> <span class="title">gsl_rng_max</span><span class="params">(<span class="keyword">const</span> gsl_rng *r)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">int</span> <span class="title">gsl_rng_min</span><span class="params">(<span class="keyword">const</span> gsl_rng *r)</span></span>;</span><br></pre></td></tr></table></figure></li></ol><ol start="5"><li><p>获取区间$[0,1)$上均匀分布的随机数</p> <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// double gsl_rng_uniform(const gsl_rng *r)</span></span><br><span class="line"><span class="keyword">double</span> r_num;</span><br><span class="line">r_num = gsl_rng_uniform(r);</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>, r_num);</span><br></pre></td></tr></table></figure></li></ol><ol start="6"><li><p>获取区间$(0, 1)$上均匀分布的随机数</p> <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">gsl_rng_uniform_pos</span><span class="params">(<span class="keyword">const</span> gsl_rng *r)</span></span>;</span><br></pre></td></tr></table></figure></li></ol><ol start="7"><li><p>获取$[0, n-1]$区间上的随机整数</p> <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">gsl_rng_uniform_int</span><span class="params">(<span class="keyword">const</span> gsl_rng *r, <span class="keyword">unsigned</span> <span class="keyword">long</span> in n)</span></span>;</span><br></pre></td></tr></table></figure></li></ol><h2>二. 概率分布</h2><h2>三. 向量数据类型</h2><h2>四. 矩阵数据类型</h2>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;C语言科学计算库GSL&lt;/p&gt;
+      &lt;p&gt;GNU Scientific Library (GSL) 是一个用于科学计算的开源 C 语言类库，有超过 1000 个函数用于数值积分，随机数生成，矩阵计算等方面的计算，这里简要介绍概率与线性代数相关的计算函数。&lt;/p&gt;
     
     </summary>
     
@@ -42,9 +96,9 @@
     <link href="http://yoursite.com/2020/03/17/Python%E4%B8%AD%E7%9A%84%E4%B8%8B%E5%88%92%E7%BA%BF/"/>
     <id>http://yoursite.com/2020/03/17/Python%E4%B8%AD%E7%9A%84%E4%B8%8B%E5%88%92%E7%BA%BF/</id>
     <published>2020-03-17T15:15:59.000Z</published>
-    <updated>2020-03-17T15:22:01.843Z</updated>
+    <updated>2020-04-24T06:47:08.589Z</updated>
     
-    <content type="html"><![CDATA[<p>Python中存在如下五种下划线模式和命名约定，会对Python程序的运行产生一定的影响。</p><a id="more"></a><ul><li>单前导下划线：_var</li><li>单末尾下划线：var_</li><li>双前导下划线：__var</li><li>双前导和末尾下划线：__var__</li><li>单下划线：_</li></ul><h2>1. 单前导下划线：_var</h2><p>以单个下划线开头的变量或方法仅供内部使用，该约定在PEP 8中有定义，这不是Python强制规定的。</p><h2>2. 单末尾下划线：var_</h2><p>有时候，一个变量的最合适的名称已经被一个关键字所占用。 因此，像class或def这样的名称不能用作Python中的变量名称。 在这种情况下，你可以附加一个下划线来解决命名冲突。单个末尾下划线（后缀）是一个约定，用来避免与Python关键字产生命名冲突。 PEP 8解释了这个约定。</p><h2>3. 双前导下划线：__var</h2><p>双下划线前缀会导致Python解释器重写属性名称，以避免子类中的命名冲突。这也叫做名称修饰（name mangling） - 解释器更改变量的名称，以便在类被扩展的时候不容易产生冲突。</p><h2>4. 双前导和末尾下划线：__var__</h2><h2>5. 单下划线：_</h2><p>按照习惯，有时候单个独立下划线是用作一个名字，来表示某个变量是临时的或无关紧要的。除了用作临时变量之外，&quot;_&quot;是大多数Python REPL中的一个特殊变量，它表示由解释器评估的最近一个表达式的结果。这样就很方便了，比如你可以在一个解释器会话中访问先前计算的结果，或者，你是在动态构建多个对象并与它们交互，无需事先给这些对象分配名字：</p>]]></content>
+    <content type="html"><![CDATA[<p>Python中存在如下五种下划线模式和命名约定，会对Python程序的运行产生一定的影响。</p><a id="more"></a><ul><li>单前导下划线：_var</li><li>单末尾下划线：var_</li><li>双前导下划线：__var</li><li>双前导和末尾下划线：__var__</li><li>单下划线：_</li></ul><h3>1. 单前导下划线：_var</h3><p>以单个下划线开头的变量或方法仅供内部使用，该约定在PEP 8中有定义，这不是Python强制规定的。</p><h3>2. 单末尾下划线：var_</h3><p>有时候，一个变量的最合适的名称已经被一个关键字所占用。 因此，像class或def这样的名称不能用作Python中的变量名称。 在这种情况下，你可以附加一个下划线来解决命名冲突。单个末尾下划线（后缀）是一个约定，用来避免与Python关键字产生命名冲突。 PEP 8解释了这个约定。</p><h3>3. 双前导下划线：__var</h3><p>双下划线前缀会导致Python解释器重写属性名称，以避免子类中的命名冲突。这也叫做名称修饰（name mangling） - 解释器更改变量的名称，以便在类被扩展的时候不容易产生冲突。</p><h3>4. 双前导和末尾下划线：__var__</h3><h3>5. 单下划线：_</h3><p>按照习惯，有时候单个独立下划线是用作一个名字，来表示某个变量是临时的或无关紧要的。除了用作临时变量之外，&quot;_&quot;是大多数Python REPL中的一个特殊变量，它表示由解释器评估的最近一个表达式的结果。这样就很方便了，比如你可以在一个解释器会话中访问先前计算的结果，或者，你是在动态构建多个对象并与它们交互，无需事先给这些对象分配名字。</p>]]></content>
     
     <summary type="html">
     

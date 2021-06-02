@@ -46,18 +46,20 @@
   };
 </script>
 
-  <meta name="description" content="Love in the Future">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ran&#39;s Homepage">
-<meta property="og:url" content="http://yoursite.com/tags/线性回归/index.html">
+  <meta name="description" content="一. 定义 一个方阵 $A$ 分解成下三角阵和上三角阵的乘积： $$ A = LU $$ $A$ 是一个 $n \times n$ 的方阵，这里设 $A$ 是一个 $4 \times 4$ 的方阵： $$ A= \begin{bmatrix} a_{11} &amp;amp; a_{12} &amp;amp; a_{13} &amp;amp; a_{14} \\ a_{21} &amp;amp; a_{22} &amp;amp; a_">
+<meta name="keywords" content="数值计算,线性代数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="矩阵LU分解">
+<meta property="og:url" content="http://yoursite.com/2021/01/29/矩阵LU分解/index.html">
 <meta property="og:site_name" content="Ran&#39;s Homepage">
-<meta property="og:description" content="Love in the Future">
+<meta property="og:description" content="一. 定义 一个方阵 $A$ 分解成下三角阵和上三角阵的乘积： $$ A = LU $$ $A$ 是一个 $n \times n$ 的方阵，这里设 $A$ 是一个 $4 \times 4$ 的方阵： $$ A= \begin{bmatrix} a_{11} &amp;amp; a_{12} &amp;amp; a_{13} &amp;amp; a_{14} \\ a_{21} &amp;amp; a_{22} &amp;amp; a_">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-01-28T17:00:04.722Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ran&#39;s Homepage">
-<meta name="twitter:description" content="Love in the Future">
+<meta name="twitter:title" content="矩阵LU分解">
+<meta name="twitter:description" content="一. 定义 一个方阵 $A$ 分解成下三角阵和上三角阵的乘积： $$ A = LU $$ $A$ 是一个 $n \times n$ 的方阵，这里设 $A$ 是一个 $4 \times 4$ 的方阵： $$ A= \begin{bmatrix} a_{11} &amp;amp; a_{12} &amp;amp; a_{13} &amp;amp; a_{14} \\ a_{21} &amp;amp; a_{22} &amp;amp; a_">
 
-<link rel="canonical" href="http://yoursite.com/tags/线性回归/">
+<link rel="canonical" href="http://yoursite.com/2021/01/29/矩阵LU分解/">
 
 
 <script id="page-configurations">
@@ -65,11 +67,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>标签: 线性回归 | Ran's Homepage</title>
+  <title>矩阵LU分解 | Ran's Homepage</title>
   
 
 
@@ -205,50 +207,154 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">线性回归
-          <small>标签</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/29/矩阵LU分解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Ran Zhao">
+      <meta itemprop="description" content="Love in the Future">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ran's Homepage">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          矩阵LU分解
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-01-29 00:14:18 / 修改时间：01:00:04" itemprop="dateCreated datePublished" datetime="2021-01-29T00:14:18+08:00">2021-01-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linear-Algebra/" itemprop="url" rel="index">
+                    <span itemprop="name">Linear Algebra</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2018</h1>
+        <a id="more"></a>
+<h2>一. 定义</h2>
+<p>一个方阵 $A$ 分解成下三角阵和上三角阵的乘积：
+$$ A = LU $$
+$A$ 是一个 $n \times n$ 的方阵，这里设 $A$ 是一个 $4 \times 4$ 的方阵：
+$$
+A=
+\begin{bmatrix}
+a_{11} &amp; a_{12} &amp; a_{13} &amp; a_{14} \\
+a_{21} &amp; a_{22} &amp; a_{23} &amp; a_{24} \\
+a_{31} &amp; a_{32} &amp; a_{33} &amp; a_{34} \\
+a_{41} &amp; a_{42} &amp; a_{43} &amp; a_{44}
+\end{bmatrix}
+$$</p>
+<p>$L$ 是一个下三角矩阵：
+$$
+L =
+\begin{bmatrix}
+\alpha_{11} &amp; 0 &amp; 0 &amp; 0 \\
+\alpha_{21} &amp; \alpha_{22} &amp; 0 &amp; 0 \\
+\alpha_{31} &amp; \alpha_{32} &amp; \alpha_{33} &amp; 0 \\
+\alpha_{41} &amp; \alpha_{42} &amp; \alpha_{43} &amp;\alpha_{44}
+\end{bmatrix}
+$$</p>
+<p>$U$ 是一个上三角矩阵：
+$$
+U =
+\begin{bmatrix}
+\beta_{11} &amp; \beta_{12} &amp; \beta_{13} &amp; \beta_{14} \\
+0 &amp; \beta_{22} &amp; \beta_{23} &amp; \beta_{24} \\
+0 &amp; 0 &amp; \beta_{33} &amp; \beta_{34} \\
+0 &amp; 0 &amp; 0 &amp; \beta_{44}
+\end{bmatrix}
+$$
+于是：
+$$
+\begin{bmatrix}
+\alpha_{11} &amp; 0 &amp; 0 &amp; 0 \\
+\alpha_{21} &amp; \alpha_{22} &amp; 0 &amp; 0 \\
+\alpha_{31} &amp; \alpha_{32} &amp; \alpha_{33} &amp; 0 \\
+\alpha_{41} &amp; \alpha_{42} &amp; \alpha_{43} &amp;\alpha_{44}
+\end{bmatrix} \times
+\begin{bmatrix}
+\beta_{11} &amp; \beta_{12} &amp; \beta_{13} &amp; \beta_{14} \\
+0 &amp; \beta_{22} &amp; \beta_{23} &amp; \beta_{24} \\
+0 &amp; 0 &amp; \beta_{33} &amp; \beta_{34} \\
+0 &amp; 0 &amp; 0 &amp; \beta_{44}
+\end{bmatrix} =
+\begin{bmatrix}
+a_{11} &amp; a_{12} &amp; a_{13} &amp; a_{14} \\
+a_{21} &amp; a_{22} &amp; a_{23} &amp; a_{24} \\
+a_{31} &amp; a_{32} &amp; a_{33} &amp; a_{34} \\
+a_{41} &amp; a_{42} &amp; a_{43} &amp; a_{44}
+\end{bmatrix}
+$$</p>
+<h2>二. 如何进行LU分解</h2>
+<p>上式中，等式右边第 i，j 个元素的计算如下：
+$$ a_{ij} = \alpha_{i,1}\beta_{1,j} + \alpha_{i,2}\beta_{2,j} + \cdots \alpha_{i,n}\beta_{n,j}$$</p>
+<h2>三. 用途</h2>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2018-08-23T12:38:12+08:00"
-              content="2018-08-23">
-          08-23
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/数值计算/" rel="tag"># 数值计算</a>
+              <a href="/tags/线性代数/" rel="tag"># 线性代数</a>
+          </div>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2018/08/23/线性回归模型/" itemprop="url">
-            <span itemprop="name">线性回归模型</span>
-          </a>
-      </h2>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/24/C语言科学计算库-GSL/" rel="prev" title="C语言科学计算库(GSL)">
+      <i class="fa fa-chevron-left"></i> C语言科学计算库(GSL)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/06/03/stochastic-bandits/" rel="next" title="随机赌徒机">
+      随机赌徒机 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-    </div>
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -299,6 +405,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-text">一. 定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-text">二. 如何进行LU分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-text">三. 用途</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -422,6 +529,54 @@
   
 
   
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
 
   
 

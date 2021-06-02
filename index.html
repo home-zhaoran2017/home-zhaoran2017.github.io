@@ -210,6 +210,200 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/06/03/stochastic-bandits/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Ran Zhao">
+      <meta itemprop="description" content="Love in the Future">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ran's Homepage">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/06/03/stochastic-bandits/" class="post-title-link" itemprop="url">随机赌徒机</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-06-03 00:27:10 / 修改时间：00:55:23" itemprop="dateCreated datePublished" datetime="2021-06-03T00:27:10+08:00">2021-06-03</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>随机多臂赌徒机是一类重要的模型。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/06/03/stochastic-bandits/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/29/矩阵LU分解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Ran Zhao">
+      <meta itemprop="description" content="Love in the Future">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ran's Homepage">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/29/矩阵LU分解/" class="post-title-link" itemprop="url">矩阵LU分解</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-01-29 00:14:18 / 修改时间：01:00:04" itemprop="dateCreated datePublished" datetime="2021-01-29T00:14:18+08:00">2021-01-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linear-Algebra/" itemprop="url" rel="index">
+                    <span itemprop="name">Linear Algebra</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <a id="more"></a>
+<h2>一. 定义</h2>
+<p>一个方阵 $A$ 分解成下三角阵和上三角阵的乘积：
+$$ A = LU $$
+$A$ 是一个 $n \times n$ 的方阵，这里设 $A$ 是一个 $4 \times 4$ 的方阵：
+$$
+A=
+\begin{bmatrix}
+a_{11} &amp; a_{12} &amp; a_{13} &amp; a_{14} \\
+a_{21} &amp; a_{22} &amp; a_{23} &amp; a_{24} \\
+a_{31} &amp; a_{32} &amp; a_{33} &amp; a_{34} \\
+a_{41} &amp; a_{42} &amp; a_{43} &amp; a_{44}
+\end{bmatrix}
+$$</p>
+<p>$L$ 是一个下三角矩阵：
+$$
+L =
+\begin{bmatrix}
+\alpha_{11} &amp; 0 &amp; 0 &amp; 0 \\
+\alpha_{21} &amp; \alpha_{22} &amp; 0 &amp; 0 \\
+\alpha_{31} &amp; \alpha_{32} &amp; \alpha_{33} &amp; 0 \\
+\alpha_{41} &amp; \alpha_{42} &amp; \alpha_{43} &amp;\alpha_{44}
+\end{bmatrix}
+$$</p>
+<p>$U$ 是一个上三角矩阵：
+$$
+U =
+\begin{bmatrix}
+\beta_{11} &amp; \beta_{12} &amp; \beta_{13} &amp; \beta_{14} \\
+0 &amp; \beta_{22} &amp; \beta_{23} &amp; \beta_{24} \\
+0 &amp; 0 &amp; \beta_{33} &amp; \beta_{34} \\
+0 &amp; 0 &amp; 0 &amp; \beta_{44}
+\end{bmatrix}
+$$
+于是：
+$$
+\begin{bmatrix}
+\alpha_{11} &amp; 0 &amp; 0 &amp; 0 \\
+\alpha_{21} &amp; \alpha_{22} &amp; 0 &amp; 0 \\
+\alpha_{31} &amp; \alpha_{32} &amp; \alpha_{33} &amp; 0 \\
+\alpha_{41} &amp; \alpha_{42} &amp; \alpha_{43} &amp;\alpha_{44}
+\end{bmatrix} \times
+\begin{bmatrix}
+\beta_{11} &amp; \beta_{12} &amp; \beta_{13} &amp; \beta_{14} \\
+0 &amp; \beta_{22} &amp; \beta_{23} &amp; \beta_{24} \\
+0 &amp; 0 &amp; \beta_{33} &amp; \beta_{34} \\
+0 &amp; 0 &amp; 0 &amp; \beta_{44}
+\end{bmatrix} =
+\begin{bmatrix}
+a_{11} &amp; a_{12} &amp; a_{13} &amp; a_{14} \\
+a_{21} &amp; a_{22} &amp; a_{23} &amp; a_{24} \\
+a_{31} &amp; a_{32} &amp; a_{33} &amp; a_{34} \\
+a_{41} &amp; a_{42} &amp; a_{43} &amp; a_{44}
+\end{bmatrix}
+$$</p>
+<h2>二. 如何进行LU分解</h2>
+<p>上式中，等式右边第 i，j 个元素的计算如下：
+$$ a_{ij} = \alpha_{i,1}\beta_{1,j} + \alpha_{i,2}\beta_{2,j} + \cdots \alpha_{i,n}\beta_{n,j}$$</p>
+<h2>三. 用途</h2>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/24/C语言科学计算库-GSL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -235,7 +429,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-04-24 13:56:28 / 修改时间：14:01:20" itemprop="dateCreated datePublished" datetime="2020-04-24T13:56:28+08:00">2020-04-24</time>
+              <time title="创建时间：2020-04-24 13:56:28 / 修改时间：14:45:34" itemprop="dateCreated datePublished" datetime="2020-04-24T13:56:28+08:00">2020-04-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -260,7 +454,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>C语言科学计算库GSL</p>
+          <p>GNU Scientific Library (GSL) 是一个用于科学计算的开源 C 语言类库，有超过 1000 个函数用于数值积分，随机数生成，矩阵计算等方面的计算，这里简要介绍概率与线性代数相关的计算函数。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/04/24/C语言科学计算库-GSL/#more" rel="contents">
@@ -310,10 +504,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-03-17 23:15:59 / 修改时间：23:22:01" itemprop="dateCreated datePublished" datetime="2020-03-17T23:15:59+08:00">2020-03-17</time>
+              <time title="创建时间：2020-03-17 23:15:59" itemprop="dateCreated datePublished" datetime="2020-03-17T23:15:59+08:00">2020-03-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-24 14:47:08" itemprop="dateModified" datetime="2020-04-24T14:47:08+08:00">2020-04-24</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -822,161 +1022,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/02/回归模型的评估指标/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Ran Zhao">
-      <meta itemprop="description" content="Love in the Future">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ran's Homepage">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/08/02/回归模型的评估指标/" class="post-title-link" itemprop="url">回归模型的评估指标</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-08-02 14:47:01" itemprop="dateCreated datePublished" datetime="2019-08-02T14:47:01+08:00">2019-08-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-09 13:22:12" itemprop="dateModified" datetime="2020-01-09T13:22:12+08:00">2020-01-09</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>机器学习中回归模型的一些评估指标。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/08/02/回归模型的评估指标/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/26/波士顿房价数据分析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="Ran Zhao">
-      <meta itemprop="description" content="Love in the Future">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ran's Homepage">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/07/26/波士顿房价数据分析/" class="post-title-link" itemprop="url">波士顿房价数据分析</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-07-26 16:09:46" itemprop="dateCreated datePublished" datetime="2019-07-26T16:09:46+08:00">2019-07-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-01-09 11:46:26" itemprop="dateModified" datetime="2020-01-09T11:46:26+08:00">2020-01-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Data-Analysis/" itemprop="url" rel="index">
-                    <span itemprop="name">Data Analysis</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>波士顿房价集来源于1978年美国某经济学杂志。该数据集包含若干波士顿房屋的价格及其各项数据，每个数据项包含14个数据，分别是房屋均价及周边犯罪率、是否在河边等相关信息，其中最后一个数据是房屋均价。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/07/26/波士顿房价数据分析/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1049,20 +1094,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1101,7 +1146,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
